@@ -3,11 +3,16 @@
 @section('header')
     <x-header>
         <x-slot name="title">
-            <h1 class="tx-normal" style="padding-top: 10rem">Present your project</h1>
+            <h1 class="tx-normal" style="padding-top: 10rem">{{ __('Presenta_Proyecto') }}</h1>
         </x-slot>
         Lorem ipsum dolor si amet, an dus situ  sint pertinacia constituto, mir dignsius
     </x-header>
 @endsection
 @section('content')
-    <h1>Hola Mauro</h1>
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-8 col-12">
+            <submit-project></submit-project>
+        </div>
+    </div>
+
 @endsection

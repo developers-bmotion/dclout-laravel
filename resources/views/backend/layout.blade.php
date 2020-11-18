@@ -32,46 +32,48 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
 
-    <title>{{ config('app.name') }}</title>
 
+    <title>{{ config('app.name') }}</title>
     <!-- vendor css -->
     <link href="/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
 
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="/assets/css/dashforge.css">
     <link rel="stylesheet" href="/css/propios.css">
-
+    <link rel="stylesheet" href="/css/input-material.css">
 
 </head>
 <body class="mn-ht-100v d-flex flex-column">
-
-<!--=====================================
-HEADER QUE CONTIENE EL MENU, NOTIFICACIONES Y EL AVATAR DEL PERFIL
-======================================-->
+<div id="app">
+    <!--=====================================
+    HEADER QUE CONTIENE EL MENU, NOTIFICACIONES Y EL AVATAR DEL PERFIL
+    ======================================-->
 @include('backend.partials.navigation-header')
 <!--=====================================
 	HEADER O TITULO DE LA SECCIÓN
 ======================================-->
-@yield('header')
-<div class="content content-fixed">
-    <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
-        <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
-            <div>
-                <!--=====================================
-		            MIGAS DE PAN
-                ======================================-->
+    @yield('header')
+    <div class="content content-fixed" style="margin-top:0rem !important;">
+        <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
+            <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                <div>
+                    <!--=====================================
+                        MIGAS DE PAN
+                    ======================================-->
                 @yield('breadcrumb')
-                <!--=====================================
+                </div>
+            </div>
+            <!--=====================================
 		            CONTENIDO PRINCIPAL
                 ======================================-->
-                @yield('content')
-            </div>
-        </div>
-
-    </div><!-- container -->
-</div><!-- content -->
-
+            @yield('content')
+        </div><!-- container -->
+    </div><!-- content -->
+</div>
 <footer class="footer mg-t-auto">
     <div>
         <span>&copy; 2019 DashForge v1.0.0. </span>
@@ -85,49 +87,15 @@ HEADER QUE CONTIENE EL MENU, NOTIFICACIONES Y EL AVATAR DEL PERFIL
         </nav>
     </div>
 </footer>
-
+<script src="{{ asset('js/app.js') }}" defer></script>
 <script src="/lib/jquery/jquery.min.js"></script>
 <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/lib/feather-icons/feather.min.js"></script>
 <script src="/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-
-
 <script src="/assets/js/dashforge.js"></script>
-<script>
+<script src="/js/materialize-inputs.jquery.js"></script>
+<script src="/js/mode-dark.js"></script>
 
-    $(function () {
-        var getLocalStorage = localStorage.getItem("storeTypeTheme")
 
-        if (getLocalStorage == 1) {
-            $("#customSwitch3").prop('checked', true);
-            $('#header-title').removeClass('header-background')
-            $('#header-title').addClass('bd-b')
-            document.head.insertAdjacentHTML("beforeend", `<link id="themeStyle" rel="stylesheet" href="/assets/css/skin.dark.css">`)
-        }else {
-            $("#customSwitch3").prop('checked', false);
-            $('#header-title').addClass('header-background');
-            $('#header-title').removeClass('bd-b');
-            $('#themeStyle').remove()
-        }
-    })
-
-    var storeTipoProyecto = "storeTypeTheme";
-    $('#customSwitch3').on('click', function () {
-        if ($(this).is(':checked')) {
-
-            $('#header-title').removeClass('header-background')
-            $('#header-title').addClass('bd-b')
-            // Hacer algo si el checkbox ha sido seleccionado
-            localStorage.setItem("storeTypeTheme", 1)
-
-            document.head.insertAdjacentHTML("beforeend", `<link id="themeStyle" rel="stylesheet" href="/assets/css/skin.dark.css">`)
-        } else {
-            $('#header-title').addClass('header-background');
-            $('#header-title').removeClass('bd-b');
-            localStorage.setItem("storeTypeTheme", 0)
-            $('#themeStyle').remove()
-        }
-    });
-</script>
 </body>
 </html>
