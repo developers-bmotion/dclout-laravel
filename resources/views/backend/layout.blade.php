@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <!-- Required meta tags -->
@@ -46,56 +47,61 @@
     <link rel="stylesheet" href="/css/propios.css">
     <link rel="stylesheet" href="/css/input-material.css">
 
+    {{-- Custom css --}}
+    <link href="/css/custom.css" rel="stylesheet" type="text/css" />
+
 </head>
+
 <body class="mn-ht-100v d-flex flex-column">
-<div id="app">
-    <!--=====================================
+    <div id="app">
+        <!--=====================================
     HEADER QUE CONTIENE EL MENU, NOTIFICACIONES Y EL AVATAR DEL PERFIL
     ======================================-->
-@include('backend.partials.navigation-header')
-<!--=====================================
+        @include('backend.partials.navigation-header')
+        <!--=====================================
 	HEADER O TITULO DE LA SECCIÓN
 ======================================-->
-    @yield('header')
-    <div class="content content-fixed" style="margin-top:0rem !important;">
-        <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
-            <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
-                <div>
-                    <!--=====================================
+        @yield('header')
+        <div class="content content-fixed" style="margin-top:0rem !important;">
+            <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
+                <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                    <div>
+                        <!--=====================================
                         MIGAS DE PAN
                     ======================================-->
-                @yield('breadcrumb')
+                        @yield('breadcrumb')
+                    </div>
                 </div>
-            </div>
-            <!--=====================================
+                <!--=====================================
 		            CONTENIDO PRINCIPAL
                 ======================================-->
-            @yield('content')
-        </div><!-- container -->
-    </div><!-- content -->
-</div>
-<footer class="footer mg-t-auto">
-    <div>
-        <span>&copy; 2019 DashForge v1.0.0. </span>
-        <span>Created by <a href="http://themepixels.me">ThemePixels</a></span>
+                @yield('content')
+            </div><!-- container -->
+        </div><!-- content -->
     </div>
-    <div>
-        <nav class="nav">
-            <a href="https://themeforest.net/licenses/standard" class="nav-link">Licenses</a>
-            <a href="../../change-log.html" class="nav-link">Change Log</a>
-            <a href="https://discordapp.com/invite/RYqkVuw" class="nav-link">Get Help</a>
-        </nav>
-    </div>
-</footer>
-<script src="{{ asset('js/app.js') }}" defer></script>
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/lib/feather-icons/feather.min.js"></script>
-<script src="/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script src="/assets/js/dashforge.js"></script>
-<script src="/js/materialize-inputs.jquery.js"></script>
-<script src="/js/mode-dark.js"></script>
+    <footer class="footer mg-t-auto">
+        <div>
+            <span>&copy; 2019 DashForge v1.0.0. </span>
+            <span>Created by <a href="http://themepixels.me">ThemePixels</a></span>
+        </div>
+        <div>
+            <nav class="nav">
+                <a href="https://themeforest.net/licenses/standard" class="nav-link">Licenses</a>
+                <a href="../../change-log.html" class="nav-link">Change Log</a>
+                <a href="https://discordapp.com/invite/RYqkVuw" class="nav-link">Get Help</a>
+            </nav>
+        </div>
+    </footer>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/feather-icons/feather.min.js"></script>
+    <script src="/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="/assets/js/dashforge.js"></script>
+    <script src="/js/materialize-inputs.jquery.js"></script>
+    <script src="/js/mode-dark.js"></script>
 
 
 </body>
+
 </html>

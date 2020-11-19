@@ -1,0 +1,84 @@
+/* CSS libre para todos los tamaños */
+
+@font-face {
+    font-family: "Meticula";
+    src: url("/assets/fonts/meticula/Meticula-Regular.ttf") format("ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navbar-menu .nav-item.active .nav-link {
+    border-bottom: 2px solid rgba(51, 51, 51, 0.35);
+}
+.custom-menu a:hover {
+    border-bottom: 2px solid rgba(51, 51, 51, 0.35);
+    transform: translateX(2px);
+}
+
+.custom-menu .nav-link {
+    color: #333 !important;
+    font-family: "meticula", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.navbar-header {
+    border: none;
+    /* background: linear-gradient(
+        180deg,
+        rgba(251, 250, 249, 0.65) 0%,
+        rgba(251, 250, 249, 0.5) 45%,
+        rgba(251, 250, 249, 0) 100%
+    ); */
+}
+@media (min-width: 992px) {
+    .navbar-header .navbar-brand {
+        width: 20%;
+        padding: 5px 0 0 20px;
+        order: 3;
+        justify-content: center;
+    }
+    .navbar-menu {
+        justify-content: space-evenly;
+        padding: 0 30px;
+    }
+
+    .navbar-menu-wrapper {
+        padding: 0 15px;
+        width: 40%;
+    }
+
+    .navbar-header .navbar-right {
+        width: 40%;
+    }
+}
+
+/* CSS con media queries */
+@media (max-width: 991px) and (min-width: 481px) {
+    .navbar-header .navbar-brand {
+        width: 48%;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 481px) {
+    .navbar-header .navbar-brand {
+        width: 30%;
+        justify-content: flex-end;
+    }
+    .navbar-header .navbar-right {
+        padding-left: 5px;
+        width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 1024px) and (min-width: 653px) {
+}
+
+@media (min-width: 1025px) {
+}
