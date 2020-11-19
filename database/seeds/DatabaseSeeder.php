@@ -11,6 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+
+        factory(\App\Gender::class, 1)->create(['name' => 'Masculino']);
+        factory(\App\Gender::class, 1)->create(['name' => 'Femenino']);
+        factory(\App\Gender::class, 1)->create(['name' => 'No decir']);
+        $this->call(UsersTableSeeder::class);
     }
 }
