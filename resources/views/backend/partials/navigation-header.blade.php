@@ -1,16 +1,30 @@
 <header class="navbar navbar-header navbar-header-fixed">
     <a href="" id="mainMenuOpen" class="burger-menu"><i data-feather="menu"></i></a>
     <div class="navbar-brand">
-        <a href="../../index.html" class="df-logo">dash<span>forge</span></a>
+        <!-- <a href="../../index.html" class="df-logo">dash<span>forge</span></a> -->
+        <a href="" ><img src="/images/d-logo.png" alt="" width="45"></a>
     </div><!-- navbar-brand -->
     <div id="navbarMenu" class="navbar-menu-wrapper">
         <div class="navbar-menu-header">
-            <a href="../../index.html" class="df-logo">dash<span>forge</span></a>
+            <!-- <a href="../../index.html" class="df-logo">dash<span>forge</span></a> -->
             <a id="mainMenuClose" href=""><i data-feather="x"></i></a>
         </div><!-- navbar-menu-header -->
         <ul class="nav navbar-menu">
-            <li class="nav-label pd-l-20 pd-lg-l-25 d-lg-none">Main Navigation</li>
-            <li class="nav-item with-sub active">
+            {{-- <li class="nav-label pd-l-20 pd-lg-l-25 d-lg-none">Main Navigation</li> --}}
+            <li class="nav-item  active custom-menu">
+                <a href="#" class="nav-link">home.</a>
+            </li>
+            <li class="nav-item  custom-menu">
+                <a href="#" class="nav-link"> services.</a>
+            </li>
+            <li class="nav-item  custom-menu">
+                <a href="#" class="nav-link"> crew.</a>
+            </li>
+            <li class="nav-item  custom-menu">
+                <a href="#" class="nav-link"> contact.</a>
+            </li>
+<!--  -->
+            <!-- <li class="nav-item with-sub active">
                 <a href="" class="nav-link"><i data-feather="pie-chart"></i> Dashboard</a>
                 <ul class="navbar-menu-sub">
                     <li class="nav-sub-item"><a href="dashboard-one.html" class="nav-sub-link"><i
@@ -22,8 +36,8 @@
                     <li class="nav-sub-item"><a href="dashboard-four.html" class="nav-sub-link"><i
                                 data-feather="bar-chart-2"></i>Helpdesk Management</a></li>
                 </ul>
-            </li>
-            <li class="nav-item with-sub">
+            </li> -->
+            <!-- <li class="nav-item with-sub">
                 <a href="" class="nav-link"><i data-feather="package"></i> Apps</a>
                 <ul class="navbar-menu-sub">
                     <li class="nav-sub-item"><a href="app-calendar.html" class="nav-sub-link"><i
@@ -37,8 +51,8 @@
                     <li class="nav-sub-item"><a href="app-mail.html" class="nav-sub-link"><i data-feather="mail"></i>Mail</a>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item with-sub">
+            </li>  -->
+            <!-- <li class="nav-item with-sub">
                 <a href="" class="nav-link"><i data-feather="layers"></i> Pages</a>
                 <div class="navbar-menu-sub">
                     <div class="d-lg-flex">
@@ -83,74 +97,45 @@
                                         data-feather="file-text"></i> Invoice</a></li>
                         </ul>
                     </div>
-                </div><!-- nav-sub -->
-            </li>
-            <li class="nav-item"><a href="../../components/" class="nav-link"><i data-feather="box"></i> Components</a>
-            </li>
-            <li class="nav-item"><a href="../../collections/" class="nav-link"><i data-feather="archive"></i>
-                    Collections</a></li>
+                </div>
+            </li> -->
+            <!-- <li class="nav-item"><a href="../../components/" class="nav-link"><i data-feather="box"></i> Components</a>
+            </li> -->
+            <!-- <li class="nav-item"><a href="../../collections/" class="nav-link"><i data-feather="archive"></i>
+                    Collections</a></li>  -->
         </ul>
     </div><!-- navbar-menu-wrapper -->
+
+
     <div class="navbar-right">
         @if(env('APP_ENV') === 'local')
-            <div class="custom-control custom-switch mr-4">
-                <input type="checkbox" class="custom-control-input" data-type="1" id="customSwitch3">
-                <label class="custom-control-label dark-switch" for="customSwitch3"></label>
-            </div>
+        <div class="custom-control custom-switch mr-4">
+            <input type="checkbox" class="custom-control-input" data-type="1" id="customSwitch3">
+            <label class="custom-control-label dark-switch" for="customSwitch3"></label>
+        </div>
         @endif
         <a id="navbarSearch" href="" class="search-link"><i data-feather="search"></i></a>
         <div class="dropdown dropdown-message">
             <a href="" class="dropdown-link new-indicator" data-toggle="dropdown">
-                <i data-feather="message-square"></i>
-                <span>5</span>
+                {{ session('applocale') == 'es' ? 'ES' : 'EN'  }}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-header">New Messages</div>
-                <a href="" class="dropdown-item">
+                <div class="dropdown-header">{{ __('Seleccionar_Idioma') }}</div>
+                <a href="{{ route('set_lenguage', ['en']) }}" class="dropdown-item">
                     <div class="media">
-                        <div class="avatar avatar-sm avatar-online"><img src="https://via.placeholder.com/350"
-                                                                         class="rounded-circle" alt=""></div>
                         <div class="media-body mg-l-15">
-                            <strong>Socrates Itumay</strong>
-                            <p>nam libero tempore cum so...</p>
-                            <span>Mar 15 12:32pm</span>
+                            <strong>EN</strong>
                         </div><!-- media-body -->
                     </div><!-- media -->
                 </a>
-                <a href="" class="dropdown-item">
+                <a href="{{ route('set_lenguage', ['es']) }}" class="dropdown-item">
                     <div class="media">
-                        <div class="avatar avatar-sm avatar-online"><img src="https://via.placeholder.com/500"
-                                                                         class="rounded-circle" alt=""></div>
                         <div class="media-body mg-l-15">
-                            <strong>Joyce Chua</strong>
-                            <p>on the other hand we denounce...</p>
-                            <span>Mar 13 04:16am</span>
+                            <strong>ES</strong>
                         </div><!-- media-body -->
                     </div><!-- media -->
                 </a>
-                <a href="" class="dropdown-item">
-                    <div class="media">
-                        <div class="avatar avatar-sm avatar-online"><img src="https://via.placeholder.com/600"
-                                                                         class="rounded-circle" alt=""></div>
-                        <div class="media-body mg-l-15">
-                            <strong>Althea Cabardo</strong>
-                            <p>is there anyone who loves...</p>
-                            <span>Mar 13 02:56am</span>
-                        </div><!-- media-body -->
-                    </div><!-- media -->
-                </a>
-                <a href="" class="dropdown-item">
-                    <div class="media">
-                        <div class="avatar avatar-sm avatar-online"><img src="https://via.placeholder.com/500"
-                                                                         class="rounded-circle" alt=""></div>
-                        <div class="media-body mg-l-15">
-                            <strong>Adrian Monino</strong>
-                            <p>duis aute irure dolor in repre...</p>
-                            <span>Mar 12 10:40pm</span>
-                        </div><!-- media-body -->
-                    </div><!-- media -->
-                </a>
-                <div class="dropdown-footer"><a href="">View all Messages</a></div>
+                <div class="dropdown-footer"><a href=""></a></div>
             </div><!-- dropdown-menu -->
         </div><!-- dropdown -->
         <div class="dropdown dropdown-notification">
@@ -163,7 +148,7 @@
                 <a href="" class="dropdown-item">
                     <div class="media">
                         <div class="avatar avatar-sm avatar-online"><img src="https://via.placeholder.com/350"
-                                                                         class="rounded-circle" alt=""></div>
+                                class="rounded-circle" alt=""></div>
                         <div class="media-body mg-l-15">
                             <p>Congratulate <strong>Socrates Itumay</strong> for work anniversaries</p>
                             <span>Mar 15 12:32pm</span>
@@ -173,7 +158,7 @@
                 <a href="" class="dropdown-item">
                     <div class="media">
                         <div class="avatar avatar-sm avatar-online"><img src="https://via.placeholder.com/500"
-                                                                         class="rounded-circle" alt=""></div>
+                                class="rounded-circle" alt=""></div>
                         <div class="media-body mg-l-15">
                             <p><strong>Joyce Chua</strong> just created a new blog post</p>
                             <span>Mar 13 04:16am</span>
@@ -183,7 +168,7 @@
                 <a href="" class="dropdown-item">
                     <div class="media">
                         <div class="avatar avatar-sm avatar-online"><img src="https://via.placeholder.com/600"
-                                                                         class="rounded-circle" alt=""></div>
+                                class="rounded-circle" alt=""></div>
                         <div class="media-body mg-l-15">
                             <p><strong>Althea Cabardo</strong> just created a new blog post</p>
                             <span>Mar 13 02:56am</span>
@@ -193,7 +178,7 @@
                 <a href="" class="dropdown-item">
                     <div class="media">
                         <div class="avatar avatar-sm avatar-online"><img src="https://via.placeholder.com/500"
-                                                                         class="rounded-circle" alt=""></div>
+                                class="rounded-circle" alt=""></div>
                         <div class="media-body mg-l-15">
                             <p><strong>Adrian Monino</strong> added new comment on your photo</p>
                             <span>Mar 12 10:40pm</span>
@@ -210,7 +195,7 @@
             </a><!-- dropdown-link -->
             <div class="dropdown-menu dropdown-menu-right tx-13">
                 <div class="avatar avatar-lg mg-b-15"><img src="https://via.placeholder.com/500" class="rounded-circle"
-                                                           alt=""></div>
+                        alt=""></div>
                 <h6 class="tx-semibold mg-b-5">Katherine Pechon</h6>
                 <p class="mg-b-25 tx-12 tx-color-03">Administrator</p>
                 <a href="" class="dropdown-item"><i data-feather="edit-3"></i> Edit Profile</a>
@@ -232,7 +217,8 @@
             <a id="navbarSearchClose" href="" class="link-03 mg-l-5 mg-lg-l-10"><i data-feather="x"></i></a>
         </div><!-- navbar-search-header -->
         <div class="navbar-search-body">
-            <label class="tx-10 tx-medium tx-uppercase tx-spacing-1 tx-color-03 mg-b-10 d-flex align-items-center">Recent
+            <label
+                class="tx-10 tx-medium tx-uppercase tx-spacing-1 tx-color-03 mg-b-10 d-flex align-items-center">Recent
                 Searches</label>
             <ul class="list-unstyled">
                 <li><a href="dashboard-one.html">modern dashboard</a></li>
@@ -243,7 +229,8 @@
 
             <hr class="mg-y-30 bd-0">
 
-            <label class="tx-10 tx-medium tx-uppercase tx-spacing-1 tx-color-03 mg-b-10 d-flex align-items-center">Search
+            <label
+                class="tx-10 tx-medium tx-uppercase tx-spacing-1 tx-color-03 mg-b-10 d-flex align-items-center">Search
                 Suggestions</label>
 
             <ul class="list-unstyled">
