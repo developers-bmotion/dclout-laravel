@@ -38,7 +38,7 @@
 
 <script>
 export default {
-name: "submit-project"
+name: "SubmitProject"
 }
 </script>
 
