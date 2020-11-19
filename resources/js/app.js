@@ -31,7 +31,18 @@ Vue.component('submit-project', require('./components/backend/submit-project.vue
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+import VueInternationalization from 'vue-i18n';
+import Locale from './vue-i18n-locales.generated';
+
+window.Vue.use(VueInternationalization);
+
+
+const i18n = new VueInternationalization({
+    locale: window.lang,
+    messages: Locale
+});
 
 const app = new Vue({
     el: '#app',
+    i18n
 });
