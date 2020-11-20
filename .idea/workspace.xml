@@ -20,16 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3a55fe3-bd9f-43b3-9e0a-02f6bd8652c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/sass/dist/vue-multiselect.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/InputFormComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/lib/moment/min/locales.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/lib/moment/min/locales.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/lib/moment/min/moment-with-locales.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/lib/moment/min/moment-with-locales.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/backend/SubmitProject.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/backend/SubmitProject.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/backend/SubmitProject.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/backend/SubmitProject.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +42,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="composer.json" />
-        <option value="Vue Single File Component" />
         <option value="CSS File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -189,12 +186,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/sass/dist" />
       <recent name="$PROJECT_DIR$/public/js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/pages" />
+      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -217,6 +215,7 @@
       <workItem from="1605717327248" duration="240000" />
       <workItem from="1605800993318" duration="2519000" />
       <workItem from="1605821629064" duration="2438000" />
+      <workItem from="1605881864235" duration="8616000" />
     </task>
     <servers />
   </component>
