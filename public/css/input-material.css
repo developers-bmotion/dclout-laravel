@@ -45,3 +45,42 @@
     list-style: none;
     font-size: 0.7em;
     padding-left: 5px; }
+
+.form-group.input-material label {
+    color: #b1bbc4;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 7px;
+    transition: 0.1s ease all;
+    -moz-transition: 0.1s ease all;
+    -webkit-transition: 0.1s ease all; }
+
+.form-group.input-material .vdp-datepicker .input-group .form-control {
+    border: none;
+    border-bottom: 2px solid #ced4da;
+    border-radius: 0px;
+    background: transparent;
+    padding-left: 5px;
+    box-shadow: none;
+    /* required fields */
+    /* active state */
+    /* invalid state */ }
+
+.form-group.input-material .vdp-datepicker .input-group .form-control:required ~ label::after {
+    content: '*';
+    color: #dc3545;
+    padding-left: 2px;
+    font-size: 0.8em; }
+
+.form-group.input-material .vdp-datepicker .input-group .form-control:focus, .form-group.input-material .vdp-datepicker .input-group .form-control[value]:not([value=""]) {
+    border-bottom-color: #000000;
+    color: #000; }
+.form-group.input-material .vdp-datepicker .input-group  .form-control:focus ~ label, .form-group.input-material .vdp-datepicker .input-group .form-control[value]:not([value=""]) ~ label {
+    top: -25px !important;
+    font-size: 14px !important;
+    color: #000000 !important;
+    font-weight: 500 !important;
+}
