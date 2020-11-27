@@ -10903,3 +10903,31 @@ a.text-dark:focus {
   }
 }
 
+i.vs-icon.notranslate.icon-scale.vs-checkbox--icon.material-icons {
+  font-size: 1.1rem !important;
+  font-weight: bolder !important;
+}
+
+.con-vs-checkbox {
+  justify-content: initial !important;
+}
+
+span.con-slot-label {
+  padding-left: 0.5rem !important;
+}
+
+.row-checkbox-project-submit .con-vs-checkbox {
+  padding-bottom: 0.5rem !important;
+}
+
+@media (max-width: 767px) and (min-width: 310px) {
+  span.checkbox_x.vs-checkbox {
+    width: 2.5rem !important;
+  }
+}
+
+.profiling .form-group.input-material {
+  margin-top: 0px !important;
+  margin-bottom: 25px !important;
+}
+

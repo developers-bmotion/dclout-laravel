@@ -39,7 +39,7 @@
     <link href="/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link href="/css/loading.css">
 
 
     <!-- DashForge CSS -->
@@ -53,6 +53,7 @@
         window.lang = '{{ session('applocale') }}'
         console.log(window.lang)
     </script>
+
 </head>
 
 <body class="mn-ht-100v d-flex flex-column">
@@ -95,6 +96,7 @@
             </nav>
         </div>
     </footer>
+
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="/lib/jquery/jquery.min.js"></script>
     <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -103,6 +105,8 @@
     <script src="/assets/js/dashforge.js"></script>
     <script src="/js/materialize-inputs.jquery.js"></script>
     <script src="/js/mode-dark.js"></script>
+    <script src="/js/loading.js"></script>
+    @stack('js')
 
 
 </body>

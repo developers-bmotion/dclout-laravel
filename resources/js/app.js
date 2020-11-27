@@ -8,6 +8,11 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vuesax from 'vuesax';
+import 'vuesax/dist/vuesax.css';
+import 'material-icons/iconfont/material-icons.css';
+Vue.use(Vuesax);
+
 import moment from 'moment';
 import 'moment/locale/es';
 window.moment = moment;
@@ -50,5 +55,10 @@ const i18n = new VueInternationalization({
 window.eventBus = new Vue()
 const app = new Vue({
     el: '#app',
-    i18n
+    i18n,
+    components: {
+        'submit-project': () => import(
+            './pages/backend/SubmitProject.vue'
+            )
+    }
 });

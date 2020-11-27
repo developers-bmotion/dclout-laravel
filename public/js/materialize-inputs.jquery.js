@@ -17,4 +17,8 @@ $.fn.materializeInputs = function(selectors) {
     this.on("keyup", selectors, function() {
         setInputValueAttr(this);
     });
+    // on click
+    this.on("click", selectors, function() {
+        setInputValueAttr(this);
+    });
 };

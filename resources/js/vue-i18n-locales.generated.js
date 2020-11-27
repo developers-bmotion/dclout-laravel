@@ -13,13 +13,47 @@ export default {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
+        "register-aspirant": {
+            "informacion_personal": "Personal information",
+            "perfilacion": "Profiling",
+            "nombres": "Name",
+            "apellidos": "Last Name",
+            "correo": "Email",
+            "selecciona_pais": "Select your country",
+            "selecciona_ciudad": "Select your city",
+            "telefono": "Mobile",
+            "fecha_nacimiento": "Birth date",
+            "mensaje_creador_contenido": "I am a content digital content creator and I want to be part of d. projects opportunities ",
+            "btn_registar": "Register",
+            "btn_siguiente": "Next",
+            "btn_atras": "Back",
+            "si": "Yes",
+            "no": "No",
+            "selecciona": "Choose",
+            "error_name": "Please enter a valid name",
+            "error_last_name": "Please enter valid last name",
+            "error_email": "Enter a valid email",
+            "error_fecha_nacimiento": "Please enter a valid date of birth",
+            "error_telefono": "Please enter valid phone number",
+            "requerido_name": "The name is required",
+            "requerido_last_name": "Last name is required",
+            "requerido_email": "Email is required",
+            "requerido_fecha_nacimiento": "Date of birth is required",
+            "requerido_telefono": "The phone is required",
+            "requerido_seleccionar_pais": "You must select your country",
+            "requerido_seleccionar_ciudad": "You must select your city",
+            "seleccionar_categoria_profiling": "Choose the category you relate the most",
+            "seleccionar_tags_profiling": "Choose the taggs you feel more related to ",
+            "seleccionar_music_profiling": "Choose the music genre you feel more related to",
+            "mensaje_desea_enviar_proyecto": "Do you have an innovation project you want to show us? Select yes and send us information about it",
+            "requerido_selecc_categoria_perfilacion": "You must select a category",
+            "requerido_selecc_tags_perfilacion": "You must select at least one tag",
+            "requerido_selecc_music_perfilacion": "You must select at least one musical genre",
+            "presenta_proyecto": "Present your project"
+        },
         "pagination": {
             "previous": "&laquo; Previous",
             "next": "Next &raquo;"
-        },
-        "project": {
-            "informacion_personal": "Personal information",
-            "informacion_proyecto": "Project information"
         },
         "validation": {
             "accepted": "The {attribute} must be accepted.",
@@ -148,6 +182,44 @@ export default {
             "failed": "Estas credenciales no coinciden con nuestros registros.",
             "throttle": "Demasiados intentos de acceso. Por favor intente nuevamente en {seconds} segundos."
         },
+        "register-aspirant": {
+            "informacion_personal": "Información personal",
+            "perfilacion": "Perfilación",
+            "nombres": "Nombre",
+            "apellidos": "Apellido",
+            "correo": "Correo Electrónico",
+            "selecciona_pais": "Selecciona tu pais",
+            "selecciona_ciudad": "Selecciona tu ciudad",
+            "telefono": "Teléfono",
+            "fecha_nacimiento": "Fecha de Nacimiento",
+            "mensaje_creador_contenido": "Soy creador de contenido y deseo participar en las oportunidades de proyectos de d.",
+            "btn_registar": "Registar",
+            "btn_siguiente": "Siguiente",
+            "btn_atras": "Átras",
+            "si": "Si",
+            "no": "No",
+            "selecciona": "Selecciona",
+            "error_name": "Ingrese un nombre valido",
+            "error_last_name": "Ingrese apellido valido",
+            "error_email": "Ingrese un email valido",
+            "error_fecha_nacimiento": "Ingrese una fecha de nacimiento válida",
+            "error_telefono": "Ingrese número de teléfono válido",
+            "requerido_name": "El nombre es requerido",
+            "requerido_last_name": "El apellido es requerido",
+            "requerido_email": "El email es requerido",
+            "requerido_fecha_nacimiento": "La fecha de nacimiento es requerida",
+            "requerido_telefono": "El teléfono es requerido",
+            "requerido_seleccionar_pais": "Debes seleccionar tu pais",
+            "requerido_seleccionar_ciudad": "Debes seleccionar tu ciudad",
+            "seleccionar_categoria_profiling": "Elige la categoría que más se relacione a ti",
+            "seleccionar_tags_profiling": "Elige tus tags más afines",
+            "seleccionar_music_profiling": "Elige tus géneros de música más afines",
+            "mensaje_desea_enviar_proyecto": "¿Tienes un proyecto de emprendimiento para presentar? Selecciona si y envíanos la información",
+            "requerido_selecc_categoria_perfilacion": "Debes seleccionar una categoría",
+            "requerido_selecc_tags_perfilacion": "Debes seleccionar al menos una etiqueta",
+            "requerido_selecc_music_perfilacion": "Debes seleccionar al menos un género musical",
+            "presenta_proyecto": "Presenta tu proyecto"
+        },
         "pagination": {
             "previous": "&laquo; Anterior",
             "next": "Siguiente &raquo;"
@@ -262,10 +334,6 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
-        },
-        "project": {
-            "informacion_personal": "Información personal",
-            "informacion_proyecto": "Información proyecto"
         },
         "validation": {
             "accepted": "{attribute} debe ser aceptado.",

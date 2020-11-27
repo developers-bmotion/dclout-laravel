@@ -5,8 +5,8 @@
         <datepicker
             v-if="type === 'date'"
             :language="es"
-            :input-class="'form-control input-material'+((!validated||msgServer) ? 'is-invalid': '')"
-            placeholder="Fecha de Nacimiento"
+            :input-class="((!validated||msgServer) ? 'is-invalid': '')"
+            placeholder=""
             :class="((!validated||msgServer) ? 'is-invalid': '')"
             :full-month-name="true"
             format="yyyy-MM-dd"
