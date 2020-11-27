@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\MusicalGenre;
+use App\Gender;
 use Faker\Generator as Faker;
 
-$factory->define(MusicalGenre::class, function (Faker $faker) {
+$factory->define(Gender::class, function (Faker $faker) {
     return [
         'id'=>null,
         'name'=>$faker->jobTitle,

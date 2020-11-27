@@ -15,8 +15,8 @@ class CreateMusicalGenresTable extends Migration
     {
         Schema::create('musical_genres', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->text('description');
+            $table->json('name');
+            $table->json('description');
             $table->timestamps();
         });
     }

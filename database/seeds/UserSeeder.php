@@ -26,7 +26,6 @@ class UserSeeder extends Seeder
 
         $admin = new \App\User;
         $admin->document = '111122223';
-        $admin->documents_type_id = 1;
         $admin->name = ucwords('admin');
         $admin->last_name = ucwords('admin');
         $admin->email = 'admin@gmail.com';
@@ -43,7 +42,7 @@ class UserSeeder extends Seeder
         //manger
         $manager = new \App\User;
         $manager->document = '111122223';
-        $manager->documents_type_id = 1;
+        // $manager->documents_type_id = 1;
         $manager->name = ucwords('manager');
         $manager->last_name = ucwords('manager');
         $manager->email = 'manager@gmail.com';
@@ -60,7 +59,7 @@ class UserSeeder extends Seeder
         //clout
         $clout = new \App\User;
         $clout->document = '111122223';
-        $clout->documents_type_id = 1;
+        // $clout->documents_type_id = 1;
         $clout->name = ucwords('clout');
         $clout->last_name = ucwords('clout');
         $clout->email = 'clout@gmail.com';
@@ -77,7 +76,7 @@ class UserSeeder extends Seeder
         //guest
         $guest = new \App\User;
         $guest->document = '111122223';
-        $guest->documents_type_id = 1;
+        // $guest->documents_type_id = 1;
         $guest->name = ucwords('guest');
         $guest->last_name = ucwords('guest');
         $guest->email = 'guest@gmail.com';

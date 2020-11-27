@@ -3,15 +3,26 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Tag extends Model
 {
+    use HasTranslations;
 
-    public function projects(){
-        return $this->morphedByMany(Project::class,'tagable');
+    protected $translatable =[
+        "name",
+        "description"
+    ];
+
+
+
+
+
+    public function clout(){
+        return $this->morphedByMany(Clout::class,'taggable');
     }
 
-    public function clouts(){
-        return $this->morphedByMany(Clout::class,'tagable');
+    public function project(){
+        return $this->morphedByMany(Project::class,'taggable');
     }
 }

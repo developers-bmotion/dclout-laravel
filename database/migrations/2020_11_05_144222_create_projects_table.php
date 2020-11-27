@@ -15,8 +15,8 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('description');
+            $table->json('name');
+            $table->json('description');
             $table->string('link');
             $table->enum('state', [
                 \App\Project::REVISION,
@@ -30,8 +30,6 @@ class CreateProjectsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('project_category_id');
             $table->foreign('project_category_id')->references('id')->on('project_categories');
-            $table->integer('tagable_id')->unsigned();
-            $table->string('tagable_type');
             $table->timestamps();
         });
     }

@@ -11,6 +11,6 @@ class CloutSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

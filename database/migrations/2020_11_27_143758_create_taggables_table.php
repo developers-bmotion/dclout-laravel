@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCloudCategoriesTable extends Migration
+class CreateTaggablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCloudCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cloud_categories', function (Blueprint $table) {
-
-            $table->increments('id');
-            $table->json('name');
-            $table->json('description');
+        Schema::create('taggables', function (Blueprint $table) {
+            $table->id();
+            $table->integer('tag_id')->unsigned();
+            $table->integer('taggable_id')->unsigned();
+            $table->string('taggable_type');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateCloudCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cloud_categories');
+        Schema::dropIfExists('taggables');
     }
 }

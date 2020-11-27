@@ -14,18 +14,16 @@ class CreateCloutsTable extends Migration
     public function up()
     {
         Schema::create('clouts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('level_id');
-            $table->foreign('level_id')->references('id')->on('levels');
-            $table->unsignedInteger('musical_genres_id');
-            $table->foreign('musical_genres_id')->references('id')->on('musical_genres');
-            $table->unsignedInteger('clout_category_id');
-            $table->foreign('clout_category_id')->references('id')->on('cloud_categories');
-            $table->integer('tagable_id')->unsigned();
-            $table->string('tagable_type');
-            $table->timestamps();
+                $table->increments('id');
+                $table->unsignedInteger('user_id');
+                $table->foreign('user_id')->references('id')->on('users');
+                $table->unsignedInteger('level_id');
+                $table->foreign('level_id')->references('id')->on('levels');
+                $table->unsignedInteger('musical_genres_id');
+                $table->foreign('musical_genres_id')->references('id')->on('musical_genres');
+                $table->unsignedInteger('clout_category_id');
+                $table->foreign('clout_category_id')->references('id')->on('cloud_categories');
+                $table->timestamps();
         });
     }
 
