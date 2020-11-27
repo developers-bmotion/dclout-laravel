@@ -51,7 +51,6 @@
     <link href="/css/custom.css" rel="stylesheet" type="text/css" />
     <script>
         window.lang = '{{ session('applocale') }}'
-        console.log(window.lang)
     </script>
 
 </head>

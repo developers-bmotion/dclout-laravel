@@ -15,11 +15,12 @@
                 ref="wizard"
             >
                 <!--=====================================
-		            TAB 2 REGISTROS
+		            TAB 1 REGISTROS
                 ======================================-->
                 <tab-content
                     :title="`${ $t('register-aspirant.informacion_personal')}`"
-                    :beforeChange="validarTab"
+                    :beforeChange='validarTab'
+                    :isLastStep=true
                 >
                     <section class="pb-5" style="width: 100%; height: 100%">
                         <div class="row">
@@ -138,31 +139,49 @@
                         <hr>
                         <div class="row pb-3">
                             <div class="col-12 col-lg-12 col-md-6">
-                                {{$t('register-aspirant.mensaje_creador_contenido')}}
+                                {{ $t('register-aspirant.mensaje_creador_contenido') }}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-lg-6 col-md-6">
-                                <multiselect
-                                    v-model="valueCreator"
-                                    :options="optionsCreator"
-                                    :placeholder="$t('register-aspirant.selecciona')"
-                                ></multiselect>
+                                <input-form
+                                    label=""
+                                    id="txtCreator"
+                                    errorMsg
+                                    requiredMsg=""
+                                    :required="false"
+                                    :modelo.sync="valueCreator"
+                                    :msgServer.sync="errors.valueCreator"
+                                    type="multiselect"
+                                    selectLabel="Busca tu ciudad"
+                                    :multiselect="{ options: optionsCreator,
+                                          // selectLabel:$t('company.multiselect.select'),
+                                          // selectedLabel:$t('company.multiselect.selected'),
+                                          // deselectLabel:$t('company.multiselect.remove'),
+                                          placeholder:$t('register-aspirant.selecciona'),
+                                          taggable : true,
+                                          'track-by':'id',
+                                          label: 'name',
+                                          'custom-label': countries=>countries.name
+                                        }"
+                                ></input-form>
                             </div>
                         </div>
                     </section>
                 </tab-content>
+
                 <!--=====================================
 		            TAB 2 DE PERFILACIÓN
                 ======================================-->
-                <tab-content v-if="valueCreator == 'Si' || valueCreator == 'Yes'"
+                <tab-content v-if="valueCreator.id == 1"
                              :title="`${$t('register-aspirant.perfilacion')}`"
                              :beforeChange="validarTab"
                 >
                     <section class="pb-5" style="width: 100%; height: 100%" v-if="currentTab===1">
                         <div class="row">
                             <div class="col-12 col-lg-6 col-md-6 profiling">
-                                <label>{{ $t('register-aspirant.seleccionar_categoria_profiling') }} <span class="text-danger">*</span></label>
+                                <label>{{ $t('register-aspirant.seleccionar_categoria_profiling') }} <span
+                                    class="text-danger">*</span></label>
                                 <input-form
                                     label=""
                                     id="txtCategoryProfiling"
@@ -186,7 +205,8 @@
                                 ></input-form>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6 profiling">
-                                <label>{{ $t('register-aspirant.seleccionar_tags_profiling') }} <span class="text-danger">*</span></label>
+                                <label>{{ $t('register-aspirant.seleccionar_tags_profiling') }} <span
+                                    class="text-danger">*</span></label>
                                 <input-form
                                     label=""
                                     id="txtTagsProfiling"
@@ -208,11 +228,12 @@
                                           taggable : true,
                                           'custom-label': tags => tags.name
                                         }"
-                                    @tag="addTagGenero"
+                                    @tag="addTagProfiling"
                                 ></input-form>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6 profiling">
-                                <label>{{ $t('register-aspirant.seleccionar_music_profiling') }} <span class="text-danger">*</span></label>
+                                <label>{{ $t('register-aspirant.seleccionar_music_profiling') }} <span
+                                    class="text-danger">*</span></label>
                                 <input-form
                                     label=""
                                     id="txtMusicProfiling"
@@ -234,23 +255,39 @@
                                           taggable : true,
                                           'custom-label': music => music.name
                                         }"
-                                    @tag="addTagGenero"
+                                    @tag="addTagMusic"
                                 ></input-form>
                             </div>
                         </div>
                         <hr>
                         <div class="row pb-3">
                             <div class="col-12 col-lg-12 col-md-6">
-                                {{$t('register-aspirant.mensaje_desea_enviar_proyecto')}}
+                                {{ $t('register-aspirant.mensaje_desea_enviar_proyecto') }}
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-lg-6 col-md-6">
-                                <multiselect
-                                    v-model="valueCreateProject"
-                                    :options="optionsCreateProject"
-                                    :placeholder="$t('register-aspirant.selecciona')"
-                                ></multiselect>
+                                <input-form
+                                    label=""
+                                    id="txtCreatorProject"
+                                    errorMsg
+                                    requiredMsg=""
+                                    :required="false"
+                                    :modelo.sync="valueCreateProject"
+                                    :msgServer.sync="errors.valueCreator"
+                                    type="multiselect"
+                                    selectLabel="Busca tu ciudad"
+                                    :multiselect="{ options: optionsCreateProject,
+                                          // selectLabel:$t('company.multiselect.select'),
+                                          // selectedLabel:$t('company.multiselect.selected'),
+                                          // deselectLabel:$t('company.multiselect.remove'),
+                                          placeholder:$t('register-aspirant.selecciona'),
+                                          taggable : true,
+                                          'track-by':'id',
+                                          label: 'name',
+                                          'custom-label': countries=>countries.name
+                                        }"
+                                ></input-form>
                             </div>
                         </div>
                     </section>
@@ -258,14 +295,117 @@
                 <!--=====================================
 		            TAB 3 ENVIAR PROYECTO
                 ======================================-->
-                <tab-content v-if="valueCreateProject == 'Si' || valueCreateProject == 'Yes'"
+                <tab-content v-if="valueCreateProject.id == 1"
                              :title="`${$t('register-aspirant.presenta_proyecto')}`"
                              :beforeChange="validarTab"
                 >
                     <section class="pb-5" style="width: 100%; height: 100%" v-if="currentTab===2">
-                        <h1>Hola</h1>
+                        <div class="row">
+                            <div class="col-12 col-lg-6 col-md-6 profiling">
+                                <label>{{ $t('register-aspirant.select_redes_sociales') }} <span
+                                    class="text-danger">*</span></label>
+                                <input-form
+                                    label=""
+                                    id="txtSocialNetworks"
+                                    :requiredMsg="$t('register-aspirant.requerido_select_redes_sociales')"
+                                    :required="true"
+                                    :modelo.sync="objectSocialNetworks"
+                                    :msgServer.sync="errors.objectSocialNetworks"
+                                    type="multiselect"
+                                    selectLabel=""
+                                    :multiselect="{ 'tag-placeholder' : '',
+                                          // selectLabel   : $t('company.multiselect.select'),
+                                          // selectedLabel : $t('company.multiselect.selected'),
+                                          // deselectLabel : $t('company.multiselect.remove'),
+                                          placeholder : $t('register-aspirant.selecciona'),
+                                          label : 'social',
+                                          'track-by' : 'id',
+                                          options : listSocialNetworks,
+                                          multiple : true,
+                                          taggable : true,
+                                          'custom-label': obj => obj.social
+                                        }"
+                                    @tag="addTagSocialInputs"
+                                ></input-form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div
+                                v-for="inputsSocial in objectSocialNetworks"
+                                :key="inputsSocial.id"
+                                class="col-md-4 col-lg-4 col-12"
+                            >
+                                <input-form
+                                    :label="'Url '+inputsSocial.social"
+                                    :id="'txt'+inputsSocial+'Artist'"
+                                    pattern="url"
+                                    :placeholder="inputsSocial.social+'url'"
+                                    :errorMsg="$t('register-aspirant.error_msg_url')"
+                                    :requiredMsg="$t('register-aspirant.requerido_msg_url')"
+                                    :required="true"
+                                    :modelo.sync="inputsSocial.model"
+                                ></input-form>
+                            </div>
+                        </div>
+                        <div class="row" v-if="objectSocialNetworks.length > 0">
+                            <div class="col-12">
+                                <input-form
+                                    id="txtUrl"
+                                    :label="$t('register-aspirant.url_proyecto')"
+                                    pattern="url"
+                                    :errorMsg="$t('register-aspirant.error_url')"
+                                    :requiredMsg="$t('register-aspirant.requerido_url')"
+                                    :modelo.sync="urlProject"
+                                    :required="true"
+                                    :msgServer.sync="errors.urlProject"
+                                ></input-form>
+                            </div>
+                        </div>
+                        <div class="row" v-if="objectSocialNetworks.length > 0">
+                            <div class="col-12">
+                                <input-form
+                                    :label="$t('register-aspirant.descripcion_proyecto')"
+                                    id="releaseDate"
+                                    pattern="all"
+                                    disabled
+                                    :errorMsg="$t('register-aspirant.error_descripcion_proyecto')"
+                                    :requiredMsg="$t('register-aspirant.requerido_descripcion_proyecto')"
+                                    :required="true"
+                                    :modelo.sync="descriptionProject"
+                                    :msgServer.sync="errors.descriptionProject"
+                                    type="textarea"
+                                    :options="{
+                                        rows: 4
+                                    }"
+                                ></input-form>
+                                <span class="limiter">{{ charactersLeft }}</span>
+                            </div>
+                        </div>
                     </section>
                 </tab-content>
+
+                <template slot="footer" slot-scope="props">
+                    <div class="wizard-footer-left">
+                        <wizard-button v-if="props.activeTabIndex > 0" @click.native="props.prevTab()"
+                                       :style="props.fillButtonStyle">{{ $t('register-aspirant.btn_atras') }}
+                        </wizard-button>
+                    </div>
+                    <div class="wizard-footer-right">
+                        <wizard-button v-if="!props.isLastStep" @click.native="props.nextTab()"
+                                       class="wizard-footer-right" :style="props.fillButtonStyle">
+                            {{ $t('register-aspirant.btn_siguiente') }}
+                        </wizard-button>
+
+                        <wizard-button :disabled="descriptionProject.length > 5 ? true:false" v-else
+                                       @click.native="createNewProjectSubmit()"
+                                       class="wizard-footer-right finish-button" :style="props.fillButtonStyle">
+                            {{
+                            props.isLastStep ? $t('register-aspirant.btn_registar') :
+                            $t('register-aspirant.btn_siguiente')
+                            }}
+                        </wizard-button>
+                    </div>
+                </template>
             </form-wizard>
         </form>
     </div>
@@ -273,7 +413,9 @@
 
 <script>
 import Multiselect from 'vue-multiselect'
-
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
+import "@ckeditor/ckeditor5-build-classic/build/translations/es.js";
 import Datepicker from 'vuejs-datepicker';
 import {en, es} from "vuejs-datepicker/dist/locale";
 
@@ -283,15 +425,37 @@ export default {
     name: "SubmitProject",
     components: {
         Multiselect,
-        Datepicker
+        Datepicker,
+        ClassicEditor,
+        // WordCount
     },
     data() {
         return {
+            language: window.lang,
             value: false,
-            valueCreator: null,
-            valueCreateProject: null,
-            optionsCreator: [`${this.$t('register-aspirant.si')}`, `${this.$t('register-aspirant.no')}`],
-            optionsCreateProject: [`${this.$t('register-aspirant.si')}`, `${this.$t('register-aspirant.no')}`],
+            valueCreator: "",
+            valueCreateProject: "",
+            optionsCreator: [
+                {
+                    id: 1,
+                    name: `${this.$t('register-aspirant.si')}` //SI
+                },
+                {
+                    id: 2,
+                    name: `${this.$t('register-aspirant.no')}` //NO
+                }
+
+            ],
+            optionsCreateProject: [
+                {
+                    id: 1,
+                    name: `${this.$t('register-aspirant.si')}` //SI
+                },
+                {
+                    id: 2,
+                    name: `${this.$t('register-aspirant.no')}` //NO
+                }
+            ],
             optionsCountries: [
                 {
                     id: 1,
@@ -389,26 +553,69 @@ export default {
 
             ],
 
+            /*Objeto de Usuarios*/
             user: {
                 name: "Mao",
                 last_name: "Guti",
                 email: "si@mc.com",
-                data_birth: 2020-11-10,
+                data_birth: 2020 - 11 - 10,
                 document_num: null,
                 address: "",
                 valueCountry: null,
                 valueCity: null,
                 phone: null
             },
-            profiling:{
-                categoryProfiling:null,
-                tagsProfiling:null,
-                musicProfiling:null
+            /*Objeto de Perfilamiento*/
+            profiling: {
+                categoryProfiling: null,
+                tagsProfiling: null,
+                musicProfiling: null
             },
 
+            urlProject: null,
+            descriptionProject: "",
+
+            /*Links y redes sociales*/
+
+            objectSocialNetworks: [],
+
+            listSocialNetworks: [
+                {social: "YouTube", model: "", id: 1},
+                {social: "Facebook", model: "", id: 2},
+                {social: "Instagram", model: "", id: 3},
+                {social: "Spotify", model: "", id: 4},
+                {social: "Apple Music", model: "", id: 5},
+                // { social: 'Dezeer', model:'', id: 6 },
+                // { social: 'Tiktok', model:'', id: 7 },
+                {social: "Snapchat", model: "", id: 6},
+                {social: "Website", model: "", id: 7}
+            ],
 
             errors: {},
             currentTab: 0,
+            editor: ClassicEditor,
+            // plugin:WordCount,
+            editorData: "<p>Content of the editor.</p>",
+            editorConfig: {
+                language: "es",
+                // wordcount: {
+                //
+                //     // Whether or not you want to show the Word Count
+                //     showWordCount: true,
+                //
+                //     // Whether or not you want to show the Char Count
+                //     showCharCount: false,
+                //
+                //     // Maximum allowed Word Count
+                //     maxWordCount: 4,
+                //
+                //     // Maximum allowed Char Count
+                //     maxCharCount: 10
+                // },
+            },
+
+            en: en,
+            es: es,
         }
     },
     methods: {
@@ -418,11 +625,16 @@ export default {
             setTimeout(() => {
                 let resp = this;
                 /***  VALIDANDO LOS ERRORES Y MOSTRANDO UNA ALERTA  ***/
-                if (document.querySelectorAll(".form-control.is-invalid").length > 0) {
-
+                if (document.querySelectorAll(".is-invalid").length > 0) {
+                    alert('Llenar todos lo campos');
+                    return;
+                } else if (this.descriptionProject.length > 5) {
+                    alert('Maximo 500 palabras bien chick');
                     return;
                 }
+                alert('Enviar datos');
             }, 200);
+
         },
 
         validarTab() {
@@ -430,6 +642,7 @@ export default {
             setTimeout(() => {
                 const validated = document.querySelectorAll(".is-invalid")
                     .length < 1;
+
                 if (validated) {
                     this.$refs.wizard.tabs[this.currentTab].validationError = null;
                     this.$refs.wizard.changeTab(this.currentTab, this.currentTab + 1);
@@ -437,9 +650,59 @@ export default {
             }, 200);
             return false;
         },
+        validarTabSend() {
+            eventBus.$emit("validarFormulario");
+            alert('tabSend')
+            setTimeout(() => {
+                const validated = document.querySelectorAll(".is-invalid")
+                    .length < 1;
+
+                // if (validated && this.descriptionProject.length < 5) {
+                //     this.$refs.wizard.tabs[this.currentTab].validationError = null;
+                //     this.$refs.wizard.changeTab(this.currentTab, this.currentTab + 1);
+                // }
+            }, 200);
+            return false;
+        },
         cambioPagina(prevIndex, nextIndex) {
             this.currentTab = nextIndex;
         },
+
+        addTagSocialInputs(newTag) {
+            const tag = {
+                name: newTag,
+                code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000)
+            };
+            this.options.push(tag);
+            this.value.push(tag);
+        },
+        addTagProfiling(newTag) {
+            const tag = {
+                name: newTag,
+                code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000)
+            };
+            this.options.push(tag);
+            this.value.push(tag);
+        },
+        addTagMusic(newTag) {
+            const tag = {
+                name: newTag,
+                code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000)
+            };
+            this.options.push(tag);
+            this.value.push(tag);
+        },
+    },
+    computed: {
+        charactersLeft() {
+            var char = this.descriptionProject.length,
+                limit = 5;
+            var operation = limit - char;
+            if (operation < 0) {
+                operation = 0
+            }
+            return operation + " / " + limit + "characters remaining";
+        }
     }
 }
 </script>
@@ -492,7 +755,8 @@ export default {
 .tab1Informacion .active a {
     border-right: black 0.15rem solid;
 }
-#step-Presentatuproyecto4{
+
+#step-Presentatuproyecto4 {
     display: none;
 }
 
@@ -500,9 +764,10 @@ export default {
     display: none !important;
 }
 
-#step-Presentyourproject4{
+#step-Presentyourproject4 {
     display: none;
 }
+
 #step-Presentyourproject4 .wizard-icon-container {
     display: none !important;
 }

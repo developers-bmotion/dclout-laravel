@@ -47,4 +47,14 @@ return [
 
     //PRESENTA TU PROYECTO----------------------------------------------------------------------------------------------
     'presenta_proyecto' => 'Present your project',
+    'select_redes_sociales' => 'Select social networks',
+    'requerido_select_redes_sociales' => 'You must select at least one social network',
+    'error_msg_url' => 'Please enter a valid URL',
+    'requerido_msg_url' => 'URL is required',
+    'url_proyecto' => 'Url project',
+    'error_url' => 'Please enter a valid URL',
+    'requerido_url' => 'URL is required',
+    'descripcion_proyecto' => 'Describe your project in 500 words',
+    'error_descripcion_proyecto' => 'Please enter a valid description',
+    'requerido_descripcion_proyecto' => 'Description required'
 ];

@@ -49,7 +49,17 @@ export default {
             "requerido_selecc_categoria_perfilacion": "You must select a category",
             "requerido_selecc_tags_perfilacion": "You must select at least one tag",
             "requerido_selecc_music_perfilacion": "You must select at least one musical genre",
-            "presenta_proyecto": "Present your project"
+            "presenta_proyecto": "Present your project",
+            "select_redes_sociales": "Select social networks",
+            "requerido_select_redes_sociales": "You must select at least one social network",
+            "error_msg_url": "Please enter a valid URL",
+            "requerido_msg_url": "URL is required",
+            "url_proyecto": "Url project",
+            "error_url": "Please enter a valid URL",
+            "requerido_url": "URL is required",
+            "descripcion_proyecto": "Describe your project in 500 words",
+            "error_descripcion_proyecto": "Please enter a valid description",
+            "requerido_descripcion_proyecto": "Description required"
         },
         "pagination": {
             "previous": "&laquo; Previous",
@@ -193,7 +203,7 @@ export default {
             "telefono": "Teléfono",
             "fecha_nacimiento": "Fecha de Nacimiento",
             "mensaje_creador_contenido": "Soy creador de contenido y deseo participar en las oportunidades de proyectos de d.",
-            "btn_registar": "Registar",
+            "btn_registar": "Registrar",
             "btn_siguiente": "Siguiente",
             "btn_atras": "Átras",
             "si": "Si",
@@ -218,7 +228,17 @@ export default {
             "requerido_selecc_categoria_perfilacion": "Debes seleccionar una categoría",
             "requerido_selecc_tags_perfilacion": "Debes seleccionar al menos una etiqueta",
             "requerido_selecc_music_perfilacion": "Debes seleccionar al menos un género musical",
-            "presenta_proyecto": "Presenta tu proyecto"
+            "presenta_proyecto": "Presenta tu proyecto",
+            "select_redes_sociales": "Selecciona redes sociales",
+            "requerido_select_redes_sociales": "Debes seleccionar al menos una red social",
+            "error_msg_url": "Ingrese una URL válida",
+            "requerido_msg_url": "La URL es requerida",
+            "url_proyecto": "Url proyecto",
+            "error_url": "Ingrese URL válida",
+            "requerido_url": "La URL es requerida",
+            "descripcion_proyecto": "Describe tu proyecto en max 500 palabras",
+            "error_descripcion_proyecto": "Ingrese una descripción válida",
+            "requerido_descripcion_proyecto": "Descripción requerida"
         },
         "pagination": {
             "previous": "&laquo; Anterior",

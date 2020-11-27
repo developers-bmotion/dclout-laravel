@@ -13,6 +13,9 @@ import 'vuesax/dist/vuesax.css';
 import 'material-icons/iconfont/material-icons.css';
 Vue.use(Vuesax);
 
+import CKEditor from '@ckeditor/ckeditor5-vue2';
+Vue.use( CKEditor );
+
 import moment from 'moment';
 import 'moment/locale/es';
 window.moment = moment;

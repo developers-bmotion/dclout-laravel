@@ -11,7 +11,7 @@ return [
     'telefono' => 'Teléfono',
     'fecha_nacimiento' => 'Fecha de Nacimiento',
     'mensaje_creador_contenido' => 'Soy creador de contenido y deseo participar en las oportunidades de proyectos de d.',
-    'btn_registar' => 'Registar',
+    'btn_registar' => 'Registrar',
     'btn_siguiente' => 'Siguiente',
     'btn_atras' => 'Átras',
     'si' => 'Si',
@@ -49,4 +49,14 @@ return [
 
     //PRESENTA TU PROYECTO----------------------------------------------------------------------------------------------
     'presenta_proyecto' => 'Presenta tu proyecto',
+    'select_redes_sociales' => 'Selecciona redes sociales',
+    'requerido_select_redes_sociales' => 'Debes seleccionar al menos una red social',
+    'error_msg_url' => 'Ingrese una URL válida',
+    'requerido_msg_url' => 'La URL es requerida',
+    'url_proyecto' => 'Url proyecto',
+    'error_url' => 'Ingrese URL válida',
+    'requerido_url' => 'La URL es requerida',
+    'descripcion_proyecto' => 'Describe tu proyecto en max 500 palabras',
+    'error_descripcion_proyecto' => 'Ingrese una descripción válida',
+    'requerido_descripcion_proyecto' => 'Descripción requerida',
 ];

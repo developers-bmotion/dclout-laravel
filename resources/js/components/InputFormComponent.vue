@@ -21,7 +21,7 @@
             class="form-control"
             :class="(!validated||msgServer) ? 'is-invalid': ''"
             :id="id"
-            :placeholder="label"
+            placeholder=""
             :value="modelo"
             :required="required"
             v-on:input="change($event.target.value)"
