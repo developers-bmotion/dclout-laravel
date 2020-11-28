@@ -37,4 +37,18 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    public function logout (Request $request) {
+        $language = session('language');
+
+        auth()->logout();
+        session()->flush();
+
+        session()->put('language', $language);
+        return redirect('/login');
+    }
+
+    public function redirectPath()
+    {
+        return sprintf('/%s/register-user', session('language'));
+    }
 }

@@ -1,5 +1,9 @@
 <?php
 return [
-    'en' => ['English', 'en_US'],
-    'es' => ['Spanish', 'es_ES'],
+    'en' => [
+        'language' => 'Inglés',
+        'lc' => 'en_US'],
+    'es' => [
+        'language' => 'Español',
+        'lc' => 'es_ES'],
 ];

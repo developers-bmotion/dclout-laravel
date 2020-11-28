@@ -21,12 +21,12 @@ class Language
         if (session('applocale')){
 //            $confingLanguage = config('languages')[session('applocale')];
 //            setlocale(LC_TIME, $confingLanguage[1] . '.utf8');
-            Carbon::setLocale(session('applocale'));
-            App::setLocale(session('applocale'));
+            Carbon::setLocale(session('language'));
+            App::setLocale(session('language'));
         }else{
-            session()->put('applocale', config('app.fallback_locale'));
+            session()->put('language', config('app.fallback_locale'));
             setlocale(LC_TIME, 'es_ES.utf8');
-            Carbon::setLocale(session('applocale'));
+            Carbon::setLocale(session('language'));
             App::setLocale(config('app.fallback_locale'));
 
         }

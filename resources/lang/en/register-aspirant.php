@@ -45,6 +45,12 @@ return [
     'requerido_selecc_tags_perfilacion' => 'You must select at least one tag',
     'requerido_selecc_music_perfilacion' => 'You must select at least one musical genre',
 
+    //Mensajes de erro
+    'error_cargar_mensaje_cloud_categorias' => 'Error loading categories',
+    'error_cargar_mensaje_cloud_tags' => 'Error loading tags',
+    'error_cargar_mensaje_cloud_music' => 'Error loading music genres',
+    'error_cargar_mensaje_cloud_countries' => 'Error loading countries',
+
     //PRESENTA TU PROYECTO----------------------------------------------------------------------------------------------
     'presenta_proyecto' => 'Present your project',
     'select_redes_sociales' => 'Select social networks',
@@ -56,5 +62,7 @@ return [
     'requerido_url' => 'URL is required',
     'descripcion_proyecto' => 'Describe your project in 500 words',
     'error_descripcion_proyecto' => 'Please enter a valid description',
-    'requerido_descripcion_proyecto' => 'Description required'
+    'requerido_descripcion_proyecto' => 'Description required',
+    'caracteres_restantes' => 'Characters remaining',
+    'error_maximo_caracteres' => 'character limit exceeded'
 ];

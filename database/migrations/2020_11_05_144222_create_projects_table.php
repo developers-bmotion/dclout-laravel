@@ -16,8 +16,10 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
             $table->json('name');
-            $table->json('description');
-            $table->string('link');
+            $table->json('description')->nullable();
+            $table->string('link')->nullable();
+            $table->json('image')->nullable();
+            $table->string('video')->nullable();
             $table->enum('state', [
                 \App\Project::REVISION,
                 \App\Project::PUBLICADO,

@@ -5,6 +5,7 @@
                 color="#000000"
                 subtitle=""
                 title
+                class="register-wizard"
                 :finishButtonText="$t('register-aspirant.btn_registar')"
                 :nextButtonText="$t('register-aspirant.btn_siguiente')"
                 :backButtonText="$t('register-aspirant.btn_atras')"
@@ -61,7 +62,11 @@
                                 ></input-form>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6">
+                                <label class="form-control-label label-selects">{{
+                                        $t('register-aspirant.selecciona_pais')
+                                    }} <span class="text-danger">*</span></label>
                                 <input-form
+                                    class="input-label-register"
                                     label=""
                                     id="txtCountry"
                                     errorMsg
@@ -70,6 +75,7 @@
                                     :modelo.sync="user.valueCountry"
                                     :msgServer.sync="errors.valueCountry"
                                     type="multiselect"
+                                    @updatedValue="getCloudCities"
                                     selectLabel="Busca tu país"
                                     :multiselect="{ options: optionsCountries,
                                           // selectLabel:$t('company.multiselect.select'),
@@ -84,7 +90,11 @@
                                 ></input-form>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6">
+                                <label class="form-control-label label-selects">{{
+                                        $t('register-aspirant.selecciona_ciudad')
+                                    }} <span class="text-danger">*</span></label>
                                 <input-form
+                                    class="input-label-register"
                                     label=""
                                     id="txtCity"
                                     errorMsg
@@ -104,6 +114,7 @@
                                           label: 'name',
                                           'custom-label': countries=>countries.name
                                         }"
+
                                 ></input-form>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6">
@@ -137,7 +148,7 @@
 
                         </div>
                         <hr>
-                        <div class="row pb-3">
+                        <div class="row">
                             <div class="col-12 col-lg-12 col-md-6">
                                 {{ $t('register-aspirant.mensaje_creador_contenido') }}
                             </div>
@@ -192,7 +203,7 @@
                                     :msgServer.sync="errors.categoryProfiling"
                                     type="multiselect"
                                     selectLabel="Busca tu categoría"
-                                    :multiselect="{ options: optionsCategoryProfiling,
+                                    :multiselect="{ options: optionsCategoryProfiling.data,
                                           // selectLabel:$t('company.multiselect.select'),
                                           // selectedLabel:$t('company.multiselect.selected'),
                                           // deselectLabel:$t('company.multiselect.remove'),
@@ -200,7 +211,7 @@
                                           taggable : true,
                                           'track-by':'id',
                                           label: 'name',
-                                          'custom-label': countries=>countries.name
+                                          'custom-label': cloudCategories=>cloudCategories.name[language]
                                         }"
                                 ></input-form>
                             </div>
@@ -223,10 +234,10 @@
                                           placeholder : $t('register-aspirant.selecciona'),
                                           label : 'name',
                                           'track-by' : 'id',
-                                          options : optionsTagsProfiling,
+                                          options : optionsTagsProfiling.data,
                                           multiple : true,
                                           taggable : true,
-                                          'custom-label': tags => tags.name
+                                          'custom-label': Cloudtags => Cloudtags.name[language]
                                         }"
                                     @tag="addTagProfiling"
                                 ></input-form>
@@ -250,17 +261,17 @@
                                           placeholder : $t('register-aspirant.selecciona'),
                                           label : 'name',
                                           'track-by' : 'id',
-                                          options : optionsMusicProfiling,
+                                          options : optionsMusicProfiling.data,
                                           multiple : true,
                                           taggable : true,
-                                          'custom-label': music => music.name
+                                          'custom-label': music => music.name[language]
                                         }"
                                     @tag="addTagMusic"
                                 ></input-form>
                             </div>
                         </div>
                         <hr>
-                        <div class="row pb-3">
+                        <div class="row">
                             <div class="col-12 col-lg-12 col-md-6">
                                 {{ $t('register-aspirant.mensaje_desea_enviar_proyecto') }}
                             </div>
@@ -396,12 +407,12 @@
                             {{ $t('register-aspirant.btn_siguiente') }}
                         </wizard-button>
 
-                        <wizard-button :disabled="descriptionProject.length > 5 ? true:false" v-else
+                        <wizard-button :disabled="descriptionProject.length > 500 ? true:false" v-else
                                        @click.native="createNewProjectSubmit()"
                                        class="wizard-footer-right finish-button" :style="props.fillButtonStyle">
                             {{
-                            props.isLastStep ? $t('register-aspirant.btn_registar') :
-                            $t('register-aspirant.btn_siguiente')
+                                props.isLastStep ? $t('register-aspirant.btn_registar') :
+                                    $t('register-aspirant.btn_siguiente')
                             }}
                         </wizard-button>
                     </div>
@@ -431,7 +442,9 @@ export default {
     },
     data() {
         return {
+            dataP: null,
             language: window.lang,
+            colorLoading: '#000000',
             value: false,
             valueCreator: "",
             valueCreateProject: "",
@@ -456,102 +469,11 @@ export default {
                     name: `${this.$t('register-aspirant.no')}` //NO
                 }
             ],
-            optionsCountries: [
-                {
-                    id: 1,
-                    name: "Colombia"
-                },
-                {
-                    id: 2,
-                    name: "Ecuador"
-                },
-                {
-                    id: 3,
-                    name: "Estados Unidos"
-                }
-            ],
-            optionsCities: [
-                {
-                    id: 1,
-                    name: "Bogotá"
-                },
-                {
-                    id: 2,
-                    name: "Quito"
-                },
-                {
-                    id: 3,
-                    name: "New York"
-                }
-            ],
-            optionsCategoryProfiling: [
-                {
-                    id: 1,
-                    name: "Actor"
-                },
-                {
-                    id: 2,
-                    name: "Arquitecto"
-                },
-                {
-                    id: 3,
-                    name: "Atleta"
-                }
-            ],
-            optionsTagsProfiling: [
-                {
-                    id: 1,
-                    name: "Aire libre"
-                },
-                {
-                    id: 2,
-                    name: "Actuación"
-                },
-                {
-                    id: 3,
-                    name: "Arte"
-                },
-                {
-                    id: 4,
-                    name: "Anime"
-                },
-                {
-                    id: 5,
-                    name: "Baile"
-                },
-                {
-                    id: 6,
-                    name: "Coaching"
-                },
-
-            ],
-            optionsMusicProfiling: [
-                {
-                    id: 1,
-                    name: "Afro"
-                },
-                {
-                    id: 2,
-                    name: "Caribe"
-                },
-                {
-                    id: 3,
-                    name: "Cumbia"
-                },
-                {
-                    id: 4,
-                    name: "Cristiana"
-                },
-                {
-                    id: 5,
-                    name: "Dance / Electrónica"
-                },
-                {
-                    id: 6,
-                    name: "Hip Hop"
-                },
-
-            ],
+            optionsCountries: [],
+            optionsCities: [],
+            optionsCategoryProfiling: [],
+            optionsTagsProfiling: [],
+            optionsMusicProfiling: [],
 
             /*Objeto de Usuarios*/
             user: {
@@ -594,32 +516,12 @@ export default {
             errors: {},
             currentTab: 0,
             editor: ClassicEditor,
-            // plugin:WordCount,
-            editorData: "<p>Content of the editor.</p>",
-            editorConfig: {
-                language: "es",
-                // wordcount: {
-                //
-                //     // Whether or not you want to show the Word Count
-                //     showWordCount: true,
-                //
-                //     // Whether or not you want to show the Char Count
-                //     showCharCount: false,
-                //
-                //     // Maximum allowed Word Count
-                //     maxWordCount: 4,
-                //
-                //     // Maximum allowed Char Count
-                //     maxCharCount: 10
-                // },
-            },
 
             en: en,
             es: es,
         }
     },
     methods: {
-
         createNewProjectSubmit() {
             eventBus.$emit("validarFormulario");
             setTimeout(() => {
@@ -668,6 +570,99 @@ export default {
             this.currentTab = nextIndex;
         },
 
+        getCloudCategories() {
+            axios
+                .get('/api/register/get-cloud-categories')
+                .then(res => {
+                    this.optionsCategoryProfiling = res.data
+                })
+                .catch(err => {
+                    this.$toast.error({
+                        title: 'Error',
+                        message: this.$t('register-aspirant.error_cargar_mensaje_cloud_categorias'),
+                        showDuration: 1000,
+                        hideDuration: 5000,
+                        position: 'top right',
+                    })
+                })
+        },
+        getCloudTags() {
+            axios
+                .get('/api/register/get-cloud-tags')
+                .then(res => {
+                    this.optionsTagsProfiling = res.data
+                })
+                .catch(err => {
+                    this.$toast.error({
+                        title: 'Error',
+                        message: this.$t('register-aspirant.error_cargar_mensaje_cloud_tags'),
+                        showDuration: 1000,
+                        hideDuration: 5000,
+                        position: 'top right',
+                    })
+                })
+        },
+        getCloudMusic() {
+            axios
+                .get('/api/register/get-cloud-music')
+                .then(res => {
+                    this.optionsMusicProfiling = res.data
+                })
+                .catch(err => {
+                    this.$toast.error({
+                        title: 'Error',
+                        message: this.$t('register-aspirant.error_cargar_mensaje_cloud_music'),
+                        showDuration: 1000,
+                        hideDuration: 5000,
+                        position: 'top right',
+                    })
+                })
+        },
+
+        getCloudCountries() {
+            axios
+                .get('/api/register/get-cloud-countries')
+                .then(res => {
+                    this.optionsCountries = res.data.data
+                    this.$vs.loading.close()
+                })
+                .catch(err => {
+                    this.$toast.error({
+                        title: 'Error',
+                        message: this.$t('register-aspirant.error_cargar_mensaje_cloud_countries'),
+                        showDuration: 1000,
+                        hideDuration: 5000,
+                        position: 'top right',
+                    })
+                })
+        },
+
+        getCloudCities(countryCode) {
+
+            if (countryCode === null) {
+                console.log('entra o no entra')
+                this.optionsCities = [];
+                this.user.valueCity = null;
+            } else {
+                this.$vs.loading({color: this.colorLoading})
+                axios
+                    .get('/api/register/get-cloud-cities/' + countryCode.alpha2Code)
+                    .then(res => {
+                        this.optionsCities = res.data.data
+                        this.$vs.loading.close()
+                    })
+                    .catch(err => {
+                        this.$toast.error({
+                            title: 'Error',
+                            message: this.$t('register-aspirant.error_cargar_mensaje_cloud_countries'),
+                            showDuration: 1000,
+                            hideDuration: 5000,
+                            position: 'top right',
+                        })
+                    })
+            }
+        },
+
         addTagSocialInputs(newTag) {
             const tag = {
                 name: newTag,
@@ -696,13 +691,28 @@ export default {
     computed: {
         charactersLeft() {
             var char = this.descriptionProject.length,
-                limit = 5;
+                limit = 500;
             var operation = limit - char;
             if (operation < 0) {
                 operation = 0
+                this.$toast.error({
+                    title: 'Error',
+                    message: this.$t('register-aspirant.error_maximo_caracteres'),
+                    showDuration: 1000,
+                    hideDuration: 6000,
+                    position: 'top right',
+                })
             }
-            return operation + " / " + limit + "characters remaining";
+
+            return operation + " / " + limit + ' ' + this.$t('register-aspirant.caracteres_restantes');
         }
+    },
+    mounted() {
+        this.$vs.loading({color: this.colorLoading})
+        this.getCloudCategories();
+        this.getCloudTags();
+        this.getCloudMusic();
+        this.getCloudCountries();
     }
 }
 </script>
@@ -772,5 +782,21 @@ export default {
     display: none !important;
 }
 
+.input-label-register {
+    margin-top: 0.2rem !important
+}
+
+.label-selects {
+    color: #000000 !important;
+    font-weight: 500 !important;
+    margin-top: 1.1rem !important;
+}
+
+.register-wizard .wizard-nav{
+    position: sticky !important;
+    top: 0px !important;
+    background-color: white !important;
+    padding: 2vh 0 !important;
+}
 
 </style>

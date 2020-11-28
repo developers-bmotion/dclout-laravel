@@ -49,6 +49,10 @@ export default {
             "requerido_selecc_categoria_perfilacion": "You must select a category",
             "requerido_selecc_tags_perfilacion": "You must select at least one tag",
             "requerido_selecc_music_perfilacion": "You must select at least one musical genre",
+            "error_cargar_mensaje_cloud_categorias": "Error loading categories",
+            "error_cargar_mensaje_cloud_tags": "Error loading tags",
+            "error_cargar_mensaje_cloud_music": "Error loading music genres",
+            "error_cargar_mensaje_cloud_countries": "Error loading countries",
             "presenta_proyecto": "Present your project",
             "select_redes_sociales": "Select social networks",
             "requerido_select_redes_sociales": "You must select at least one social network",
@@ -59,7 +63,9 @@ export default {
             "requerido_url": "URL is required",
             "descripcion_proyecto": "Describe your project in 500 words",
             "error_descripcion_proyecto": "Please enter a valid description",
-            "requerido_descripcion_proyecto": "Description required"
+            "requerido_descripcion_proyecto": "Description required",
+            "caracteres_restantes": "Characters remaining",
+            "error_maximo_caracteres": "character limit exceeded"
         },
         "pagination": {
             "previous": "&laquo; Previous",
@@ -228,6 +234,10 @@ export default {
             "requerido_selecc_categoria_perfilacion": "Debes seleccionar una categoría",
             "requerido_selecc_tags_perfilacion": "Debes seleccionar al menos una etiqueta",
             "requerido_selecc_music_perfilacion": "Debes seleccionar al menos un género musical",
+            "error_cargar_mensaje_cloud_categorias": "Error al cargar categorías",
+            "error_cargar_mensaje_cloud_tags": "Error al cargar tags",
+            "error_cargar_mensaje_cloud_music": "Error al cargar géneros musicales",
+            "error_cargar_mensaje_cloud_countries": "Error al cargar países",
             "presenta_proyecto": "Presenta tu proyecto",
             "select_redes_sociales": "Selecciona redes sociales",
             "requerido_select_redes_sociales": "Debes seleccionar al menos una red social",
@@ -238,7 +248,9 @@ export default {
             "requerido_url": "La URL es requerida",
             "descripcion_proyecto": "Describe tu proyecto en max 500 palabras",
             "error_descripcion_proyecto": "Ingrese una descripción válida",
-            "requerido_descripcion_proyecto": "Descripción requerida"
+            "requerido_descripcion_proyecto": "Descripción requerida",
+            "caracteres_restantes": "Caracteres restantes",
+            "error_maximo_caracteres": "a excedido el límite de caracteres"
         },
         "pagination": {
             "previous": "&laquo; Anterior",

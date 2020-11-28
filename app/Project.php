@@ -9,6 +9,10 @@ class Project extends Model
 {
 
     use HasTranslations;
+    const IMAGES_PATH = 'images-projects';
+    protected $fillable = [
+      "name", "description", "link", "end_time", "user_id", "project_category_id"
+    ];
     protected $translatable =[
 
         "name",
@@ -24,6 +28,16 @@ class Project extends Model
         $this->morphToMany(Tag::class,'taggable');
     }
 
+    public function category(){
+        return $this->belongsTo(ProjectCategory::class, 'project_category_id');
+    }
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function imagePath(){
+        return asset(sprintf('storage/%s', $this->getTranslation("image", app()->getLocale())));
+    }
 
 }

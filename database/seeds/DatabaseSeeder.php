@@ -166,9 +166,9 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // $category14=\App\CloudCategory::find(14);
-        // $category14->setTranslation('name','en','Graphic Designer');
-        // $category14->save();
+         $category14=\App\CloudCategory::find(14);
+         $category14->setTranslation('name','en','Graphic Designer');
+         $category14->save();
 
         factory(\App\CloudCategory::class)->create(
             [
@@ -331,9 +331,17 @@ class DatabaseSeeder extends Seeder
         $category30->setTranslation('name','en','Audio Producer');
         $category30->save();
 
+        factory(\App\CloudCategory::class)->create(
+            [
+                "name"=>'Productor de video'
+            ]
+        );
+
+        $category31=\App\CloudCategory::find(30);
+        $category31->setTranslation('name','en','Video Producer');
+        $category31->save();
+
         #endregion
-
-
 
 
         // ingresar generos musicales
@@ -500,8 +508,6 @@ class DatabaseSeeder extends Seeder
         $music16->save();
 
         #endregion
-
-
 
         // tags
 

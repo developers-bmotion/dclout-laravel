@@ -117,7 +117,7 @@
         <a id="navbarSearch" href="" class="search-link"><i data-feather="search"></i></a>
         <div class="dropdown dropdown-message">
             <a href="" class="dropdown-link new-indicator" data-toggle="dropdown">
-                {{ session('applocale') == 'es' ? 'ES' : 'EN'  }}
+                {{ session('language') == 'es' ? 'ES' : 'EN'  }}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header">{{ __('Seleccionar_Idioma') }}</div>

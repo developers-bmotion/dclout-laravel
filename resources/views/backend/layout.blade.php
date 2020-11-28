@@ -50,7 +50,7 @@
     {{-- Custom css --}}
     <link href="/css/custom.css" rel="stylesheet" type="text/css" />
     <script>
-        window.lang = '{{ session('applocale') }}'
+        window.lang = '{{ session('language') }}'
     </script>
 
 </head>

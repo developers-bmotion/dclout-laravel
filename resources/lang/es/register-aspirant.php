@@ -46,6 +46,12 @@ return [
     'requerido_selecc_tags_perfilacion' => 'Debes seleccionar al menos una etiqueta',
     'requerido_selecc_music_perfilacion' => 'Debes seleccionar al menos un género musical',
 
+    //Mensajes de erro
+    'error_cargar_mensaje_cloud_categorias' => 'Error al cargar categorías',
+    'error_cargar_mensaje_cloud_tags' => 'Error al cargar tags',
+    'error_cargar_mensaje_cloud_music' => 'Error al cargar géneros musicales',
+    'error_cargar_mensaje_cloud_countries' => 'Error al cargar países',
+
 
     //PRESENTA TU PROYECTO----------------------------------------------------------------------------------------------
     'presenta_proyecto' => 'Presenta tu proyecto',
@@ -59,4 +65,6 @@ return [
     'descripcion_proyecto' => 'Describe tu proyecto en max 500 palabras',
     'error_descripcion_proyecto' => 'Ingrese una descripción válida',
     'requerido_descripcion_proyecto' => 'Descripción requerida',
+    'caracteres_restantes' => 'Caracteres restantes',
+    'error_maximo_caracteres' => 'a excedido el límite de caracteres'
 ];

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,15 +13,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('/', function (){
+   return redirect('/{locale}/register-user');
+});
 /*=============================================
 LENGUAJE
 =============================================*/
 Route::get('set_lenguage/{lang}', 'Controller@setLanguage')->name('set_lenguage');
 /*=============================================
-RUTAS PARA EL PROYECTO
+RUTAS PARA LAS PAGINAS
 =============================================*/
-Route::group(['namespace' => 'Project'], function () {
-    Route::get('/project-submit','ProjectController@indexCreateProject')->name('index.submit.create.project');
+
+/*RUTAS PARA EL REGISTRO DE USUARIOS*/
+Route::group(['prefix' => '{locale}'], function () {
+    Route::get('/register-user','RegisterController@indexRegister')->name('index.register');
 });
 
 

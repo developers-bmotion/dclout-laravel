@@ -16,6 +16,10 @@ Vue.use(Vuesax);
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 Vue.use( CKEditor );
 
+import CxltToastr from 'cxlt-vue2-toastr';
+Vue.use(CxltToastr);
+import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css';
+
 import moment from 'moment';
 import 'moment/locale/es';
 window.moment = moment;

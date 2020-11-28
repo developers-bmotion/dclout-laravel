@@ -14,10 +14,6 @@ class Tag extends Model
         "description"
     ];
 
-
-
-
-
     public function clout(){
         return $this->morphedByMany(Clout::class,'taggable');
     }

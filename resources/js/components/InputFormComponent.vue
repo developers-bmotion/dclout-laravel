@@ -36,7 +36,8 @@
             :required="required"
             v-bind="multiselect"
             :value="modelo"
-            @input="change($event)"
+            @input="change($event, true)"
+            @select="change($event)"
         ></multiselect>
         <money
             v-else-if="type === 'money'"

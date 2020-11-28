@@ -11,14 +11,17 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    /*=============================================
-    FUNCION QUE PERMITE SELECCIONAR EL LEGUAJE DE NUESTRA APLICACION
-    =============================================*/
-    public function setLanguage($language){
+    public function setLanguage (string $language) {
+        setLanguageSession($language);
 
-        if (array_key_exists($language, config('lenguages'))){
-            session()->put('applocale',$language);
-        }
-        return back();
+//        if (!auth()->check()) {
+//            return back();
+//        }
+
+        $segments = str_replace(url('/'), '', url()->previous());
+        $segments = array_filter(explode('/', $segments));
+        array_shift($segments);
+        array_unshift($segments, $language);
+        return redirect()->to(implode('/', $segments));
     }
 }
