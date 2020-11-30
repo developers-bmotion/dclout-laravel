@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/email-prueba', function (){
+   return new \App\Mail\RegisterCloud\RegisterCloud('Mauricio');
+});
 
 Route::get('/', function (){
    return redirect('/{locale}/register-user');

@@ -9,6 +9,10 @@ return [
     'selecciona_pais' => 'Selecciona tu pais',
     'selecciona_ciudad' => 'Selecciona tu ciudad',
     'telefono' => 'Teléfono',
+    'codigo_pais_telefono' => 'Código de país',
+    'seleccione_pais_telefono' => 'Seleccione un país',
+    'numero_pais_telefono' => 'Número de teléfono',
+    'ejemplo_telefono' => 'Ejemplo: ',
     'fecha_nacimiento' => 'Fecha de Nacimiento',
     'mensaje_creador_contenido' => 'Soy creador de contenido y deseo participar en las oportunidades de proyectos de d.',
     'btn_registar' => 'Registrar',
@@ -18,6 +22,14 @@ return [
     'no' => 'No',
     'selecciona' => 'Selecciona',
 
+    //Mensajes de confirmación
+    'confimar_registro_alerta_mensaje' => '¿Estas seguro de realizar el registro?',
+    'confimar_registro_alerta_aceptar' => 'Aceptar',
+    'confimar_registro_alerta_cancelar' => 'Cancelar',
+    'confimar_registro_alerta_title' => 'Confirmar',
+
+    //Mensaje cargando
+    'guardando_informacion' => 'Guardando Información',
 
     //Mensajes de error
     'error_name' => 'Ingrese un nombre valido',
@@ -25,6 +37,7 @@ return [
     'error_email' => 'Ingrese un email valido',
     'error_fecha_nacimiento' => 'Ingrese una fecha de nacimiento válida',
     'error_telefono' => 'Ingrese número de teléfono válido',
+    'error_llenar_todos_campos' => 'Debes llenar todos los campos',
 
     //Mensajes de requerido
     'requerido_name' => 'El nombre es requerido',
@@ -66,5 +79,5 @@ return [
     'error_descripcion_proyecto' => 'Ingrese una descripción válida',
     'requerido_descripcion_proyecto' => 'Descripción requerida',
     'caracteres_restantes' => 'Caracteres restantes',
-    'error_maximo_caracteres' => 'a excedido el límite de caracteres'
+    'error_maximo_caracteres' => 'a excedido el límite de caracteres',
 ];

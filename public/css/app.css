@@ -10931,3 +10931,20 @@ span.con-slot-label {
   margin-bottom: 25px !important;
 }
 
+.swal-confirmation .swal2-title {
+  color: #000000 !important;
+  font-size: 1.4em !important;
+}
+
+.swal-confirmation .swal2-html-container {
+  font-size: 0.99rem !important;
+}
+
+.swal-confirmation .swal2-confirm {
+  font-size: 0.9em !important;
+}
+
+.swal-confirmation .swal2-cancel {
+  font-size: 0.9em !important;
+}
+

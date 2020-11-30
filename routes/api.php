@@ -24,4 +24,6 @@ Route::group(['prefix' => 'register'], function () {
     Route::get('/get-cloud-music','RegisterController@getCloudMusic')->name('api.get.cloud.music');
     Route::get('/get-cloud-countries','RegisterController@getCloudCountries')->name('api.get.cloud.countries');
     Route::get('/get-cloud-cities/{countryCode}','RegisterController@getCloudCities')->name('api.get.cloud.cities');
+
+    Route::post('/store-cloud-register', 'RegisterController@storeCloud')->name('api.tore.cloud.register');
 });

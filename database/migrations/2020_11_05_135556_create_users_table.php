@@ -36,8 +36,8 @@ class CreateUsersTable extends Migration
             $table->string('picture');
             $table->string('password')->nullable();
             $table->date('birthday')->nullable();
-            $table->unsignedBigInteger('country_id')->nullable();
-            $table->foreign('country_id')->references('id')->on('countries');
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->string('url_facebook')->nullable();
             $table->string('url_youtube')->nullable();
             $table->string('url_instagram')->nullable();
@@ -55,7 +55,7 @@ class CreateUsersTable extends Migration
             ])->default(\App\User::ACTIVE);
 
 
-            $table->unsignedInteger('company_id');
+            $table->unsignedInteger('company_id')->nullable();
             $table->foreign('company_id')->references('id')->on('companies');
             // $table->unsignedBigInteger('documents_type_id')->nullable();
 

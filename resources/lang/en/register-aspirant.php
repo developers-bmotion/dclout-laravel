@@ -9,6 +9,10 @@ return [
     'selecciona_pais' => 'Select your country',
     'selecciona_ciudad' => 'Select your city',
     'telefono' => 'Mobile',
+    'codigo_pais_telefono' => 'Country code',
+    'seleccione_pais_telefono' => 'Select a country',
+    'numero_pais_telefono' => 'Phone number',
+    'ejemplo_telefono' => 'Example: ',
     'fecha_nacimiento' => 'Birth date',
     'mensaje_creador_contenido' => 'I am a content digital content creator and I want to be part of d. projects opportunities ',
     'btn_registar' => 'Register',
@@ -18,12 +22,22 @@ return [
     'no' => 'No',
     'selecciona' => 'Choose',
 
+    //Mensajes de confirmación
+    'confimar_registro_alerta_mensaje' => 'Are you sure to register?',
+    'confimar_registro_alerta_aceptar' => 'Accept',
+    'confimar_registro_alerta_cancelar' => 'Cancel',
+    'confimar_registro_alerta_title' => 'Confirm',
+
+    //Mensaje cargando
+    'guardando_informacion' => 'Saving Information',
+
     //Mensajes de error
     'error_name' => 'Please enter a valid name',
     'error_last_name' => 'Please enter valid last name',
     'error_email' => 'Enter a valid email',
     'error_fecha_nacimiento' => 'Please enter a valid date of birth',
     'error_telefono' => 'Please enter valid phone number',
+    'error_llenar_todos_campos' => 'You must fill all the fields',
 
     //Mensajes de requerido
     'requerido_name' => 'The name is required',
@@ -64,5 +78,5 @@ return [
     'error_descripcion_proyecto' => 'Please enter a valid description',
     'requerido_descripcion_proyecto' => 'Description required',
     'caracteres_restantes' => 'Characters remaining',
-    'error_maximo_caracteres' => 'character limit exceeded'
+    'error_maximo_caracteres' => 'character limit exceeded',
 ];

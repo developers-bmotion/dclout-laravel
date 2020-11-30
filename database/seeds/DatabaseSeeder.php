@@ -13,6 +13,13 @@ class DatabaseSeeder extends Seeder
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         // DB::statement('DEFAULT CHARACTER SET utf8;');
+
+        Storage::deleteDirectory('users');
+        Storage::deleteDirectory('projects');
+
+        Storage::makeDirectory('users');
+        Storage::makeDirectory('projects');
+
         \App\Gender::truncate();
         factory(\App\Gender::class, 1)->create(['name' => 'Masculino']);
         factory(\App\Gender::class, 1)->create(['name' => 'Femenino']);

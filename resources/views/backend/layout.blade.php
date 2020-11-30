@@ -84,8 +84,8 @@
     </div>
     <footer class="footer mg-t-auto">
         <div>
-            <span>&copy; 2019 DashForge v1.0.0. </span>
-            <span>Created by <a href="http://themepixels.me">ThemePixels</a></span>
+            <span>© {{ date('Y') }} {{ config('app.name') }} All rights reserved. </span>
+            <span>Created by <a target="_blank" href="http://bmotion.co">Bmotion SAS</a></span>
         </div>
         <div>
             <nav class="nav">

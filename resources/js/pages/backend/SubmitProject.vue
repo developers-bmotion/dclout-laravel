@@ -134,23 +134,58 @@
                                 ></input-form>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6">
-                                <input-form
-                                    id="txtPhone"
-                                    :label="$t('register-aspirant.telefono')"
-                                    pattern="num"
-                                    :errorMsg="$t('register-aspirant.error_telefono')"
-                                    :requiredMsg="$t('register-aspirant.requerido_telefono')"
-                                    :modelo.sync="user.phone"
-                                    :required="false"
-                                    :msgServer.sync="errors.phone"
-                                ></input-form>
+                                <label class="form-control-label label-selects">{{
+                                        $t('register-aspirant.telefono')
+                                    }}</label>
+                                <VuePhoneNumberInput
+                                    v-model="user.phone"
+                                    @update="user.phoneI=$event.formatInternational"
+                                    :fetch-country="true"
+                                    :translations="{
+                                countrySelectorLabel: $t('register-aspirant.codigo_pais_telefono'),
+                                countrySelectorError: $t('register-aspirant.seleccione_pais_telefono'),
+                                phoneNumberLabel: $t('register-aspirant.numero_pais_telefono'),
+                                example: $t('register-aspirant.ejemplo_telefono')
+                            }"
+                                />
                             </div>
 
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-12 col-lg-12 col-md-6">
-                                {{ $t('register-aspirant.mensaje_creador_contenido') }}
+                            <div class="col-12 col-lg-6 col-md-6">
+                                <input-form
+                                    id="txtPassword"
+                                    label="Password"
+                                    pattern="all"
+                                    type="password"
+                                    v-on:keyup="clearPasswordValidate"
+                                    :modelo.sync="user.password"
+                                    :required="false"
+                                    :msgServer.sync="errors.password"
+                                ></input-form>
+                                <div style="margin-top: -1rem;" v-if="errorsPassword.length > 0"
+                                     v-for="error in errorsPassword">
+                                    <span class="text-danger" v-text="error"></span><br><br>
+                                </div>
+
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6">
+                                <input-form
+                                    id="txtConfirmPassword"
+                                    label="Confirmar Password"
+                                    pattern="all"
+                                    type="password"
+                                    :modelo.sync="user.password_confirmation"
+                                    :required="false"
+                                    :msgServer.sync="errors.password_confirmation"
+                                ></input-form>
+                            </div>
+                            <hr>
+                            <div class="row pt-4">
+                                <div class="col-12 col-lg-12 col-md-12">
+                                    {{ $t('register-aspirant.mensaje_creador_contenido') }}
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -161,8 +196,9 @@
                                     errorMsg
                                     requiredMsg=""
                                     :required="false"
-                                    :modelo.sync="valueCreator"
+                                    :modelo.sync="selectCreator"
                                     :msgServer.sync="errors.valueCreator"
+                                    @updatedValue="changeValueCreator"
                                     type="multiselect"
                                     selectLabel="Busca tu ciudad"
                                     :multiselect="{ options: optionsCreator,
@@ -184,7 +220,7 @@
                 <!--=====================================
 		            TAB 2 DE PERFILACIÓN
                 ======================================-->
-                <tab-content v-if="valueCreator.id == 1"
+                <tab-content v-if="valueCreator == 1"
                              :title="`${$t('register-aspirant.perfilacion')}`"
                              :beforeChange="validarTab"
                 >
@@ -284,8 +320,9 @@
                                     errorMsg
                                     requiredMsg=""
                                     :required="false"
-                                    :modelo.sync="valueCreateProject"
+                                    :modelo.sync="selectProject"
                                     :msgServer.sync="errors.valueCreator"
+                                    @updatedValue="changeValueProject"
                                     type="multiselect"
                                     selectLabel="Busca tu ciudad"
                                     :multiselect="{ options: optionsCreateProject,
@@ -306,7 +343,7 @@
                 <!--=====================================
 		            TAB 3 ENVIAR PROYECTO
                 ======================================-->
-                <tab-content v-if="valueCreateProject.id == 1"
+                <tab-content v-if="valueCreateProject == 1"
                              :title="`${$t('register-aspirant.presenta_proyecto')}`"
                              :beforeChange="validarTab"
                 >
@@ -425,10 +462,13 @@
 <script>
 import Multiselect from 'vue-multiselect'
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-// import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
+import Swal from "sweetalert2";
 import "@ckeditor/ckeditor5-build-classic/build/translations/es.js";
 import Datepicker from 'vuejs-datepicker';
 import {en, es} from "vuejs-datepicker/dist/locale";
+import VuePhoneNumberInput from "vue-phone-number-input";
+import "vue-phone-number-input/dist/vue-phone-number-input.css";
+
 
 require("moment/min/locales.min");
 
@@ -438,6 +478,7 @@ export default {
         Multiselect,
         Datepicker,
         ClassicEditor,
+        VuePhoneNumberInput
         // WordCount
     },
     data() {
@@ -446,8 +487,10 @@ export default {
             language: window.lang,
             colorLoading: '#000000',
             value: false,
-            valueCreator: "",
-            valueCreateProject: "",
+            selectCreator: '',
+            selectProject: '',
+            valueCreator: '',
+            valueCreateProject: '',
             optionsCreator: [
                 {
                     id: 1,
@@ -485,8 +528,12 @@ export default {
                 address: "",
                 valueCountry: null,
                 valueCity: null,
-                phone: null
+                phone: "",
+                phoneI: "",
+                password: "",
+                password_confirmation: ""
             },
+
             /*Objeto de Perfilamiento*/
             profiling: {
                 categoryProfiling: null,
@@ -514,6 +561,7 @@ export default {
             ],
 
             errors: {},
+            errorsPassword: [],
             currentTab: 0,
             editor: ClassicEditor,
 
@@ -528,15 +576,116 @@ export default {
                 let resp = this;
                 /***  VALIDANDO LOS ERRORES Y MOSTRANDO UNA ALERTA  ***/
                 if (document.querySelectorAll(".is-invalid").length > 0) {
-                    alert('Llenar todos lo campos');
+                    this.$toast.error({
+                        title: 'Error',
+                        message: this.$t('register-aspirant.error_llenar_todos_campos'),
+                        showDuration: 1000,
+                        hideDuration: 6000,
+                        position: 'top right',
+                    })
                     return;
                 } else if (this.descriptionProject.length > 5) {
-                    alert('Maximo 500 palabras bien chick');
+                    this.$toast.error({
+                        title: 'Error',
+                        message: this.$t('register-aspirant.error_maximo_caracteres'),
+                        showDuration: 1000,
+                        hideDuration: 6000,
+                        position: 'top right',
+                    })
                     return;
                 }
-                alert('Enviar datos');
+                const data = new FormData()
+                /*=============================================
+                    ENVIADO DATOS AL CONTROLADOR
+                =============================================*/
+                if (this.valueCreator === '' || this.valueCreator.id === 2 || this.valueCreator === null) {
+                    this.registerSimple(data)
+                } else {
+                    this.registerSimple(data)
+                    if (this.valueCreateProject === '' || this.valueCreateProject.id === 2 || this.valueCreateProject === null) {
+                        this.registerWithCloud(data)
+                    } else {
+                        this.registerWithCloud(data)
+                        this.registerWithProject(data)
+                    }
+                }
+                data.append('valueCreator', this.valueCreator)
+                data.append('valueCreateProject', this.valueCreateProject)
+
+                Swal.fire({
+                    title: this.$t('register-aspirant.confimar_registro_alerta_title'),
+                    text: this.$t('register-aspirant.confimar_registro_alerta_mensaje'),
+                    confirmButtonColor: "#000000",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: this.$t('register-aspirant.confimar_registro_alerta_aceptar'),
+                    cancelButtonText: this.$t('register-aspirant.confimar_registro_alerta_cancelar'),
+                    customClass: "swal-confirmation",
+                    showCancelButton: true,
+                    reverseButtons: true,
+                    allowOutsideClick: false,
+                }).then(result => {
+                    if (result.value) {
+                        resp.$vs.loading({
+                            color: resp.colorLoading,
+                            text: this.$t('register-aspirant.guardando_informacion')
+                        })
+                        axios.post('/api/register/store-cloud-register', data).then(res => {
+                            resp.$vs.loading.close()
+                            this.$toast.success({
+                                title: 'Exito',
+                                message: 'Todo salio bien',
+                                showDuration: 1000,
+                                hideDuration: 5000,
+                                position: 'top right',
+                            })
+                        }).catch(err => {
+                            resp.$vs.loading.close()
+                            if (err.response.status !== 422) {
+                                return this.$toast.error({
+                                    title: 'Error',
+                                    message: err,
+                                    showDuration: 1000,
+                                    hideDuration: 5000,
+                                    position: 'top right',
+                                })
+                            }
+                            if (err.response.status === 422) {
+                                resp.errorsPassword = [];
+                                err.response.data.errors.password.map(function (value, key) {
+                                    resp.errorsPassword.push(value);
+                                })
+                            }
+                        });
+                    }
+                });
+
             }, 200);
 
+        },
+
+        registerSimple(data) {
+            data.append('name', this.user.name)
+            data.append('last_name', this.user.last_name)
+            data.append('email', this.user.email)
+            data.append('password', this.user.password)
+            data.append('password_confirmation', this.user.password_confirmation)
+            data.append('locale', this.language)
+            data.append('phone', this.user.phoneI)
+            data.append('country', JSON.stringify(this.user.valueCountry))
+            data.append('city', JSON.stringify(this.user.valueCity))
+
+        },
+
+        registerWithCloud(data) {
+            data.append('category_cloud', JSON.stringify(this.profiling.categoryProfiling))
+            data.append('tag_cloud', JSON.stringify(this.profiling.tagsProfiling))
+            data.append('music_cloud', JSON.stringify(this.profiling.musicProfiling))
+        },
+
+        registerWithProject(data) {
+            data.append('social_network', JSON.stringify(this.objectSocialNetworks))
+            data.append('url_project', this.urlProject)
+            data.append('description_project', this.descriptionProject)
         },
 
         validarTab() {
@@ -552,20 +701,17 @@ export default {
             }, 200);
             return false;
         },
+
         validarTabSend() {
             eventBus.$emit("validarFormulario");
             alert('tabSend')
             setTimeout(() => {
                 const validated = document.querySelectorAll(".is-invalid")
                     .length < 1;
-
-                // if (validated && this.descriptionProject.length < 5) {
-                //     this.$refs.wizard.tabs[this.currentTab].validationError = null;
-                //     this.$refs.wizard.changeTab(this.currentTab, this.currentTab + 1);
-                // }
             }, 200);
             return false;
         },
+
         cambioPagina(prevIndex, nextIndex) {
             this.currentTab = nextIndex;
         },
@@ -586,6 +732,7 @@ export default {
                     })
                 })
         },
+
         getCloudTags() {
             axios
                 .get('/api/register/get-cloud-tags')
@@ -602,6 +749,7 @@ export default {
                     })
                 })
         },
+
         getCloudMusic() {
             axios
                 .get('/api/register/get-cloud-music')
@@ -640,7 +788,6 @@ export default {
         getCloudCities(countryCode) {
 
             if (countryCode === null) {
-                console.log('entra o no entra')
                 this.optionsCities = [];
                 this.user.valueCity = null;
             } else {
@@ -671,6 +818,7 @@ export default {
             this.options.push(tag);
             this.value.push(tag);
         },
+
         addTagProfiling(newTag) {
             const tag = {
                 name: newTag,
@@ -679,6 +827,7 @@ export default {
             this.options.push(tag);
             this.value.push(tag);
         },
+
         addTagMusic(newTag) {
             const tag = {
                 name: newTag,
@@ -687,6 +836,28 @@ export default {
             this.options.push(tag);
             this.value.push(tag);
         },
+
+        changeValueCreator(value) {
+            if (value !== null) {
+                this.valueCreator = value.id
+            } else {
+                this.valueCreator = 0
+            }
+        },
+
+        changeValueProject(value) {
+
+            if (value !== null) {
+                this.valueCreateProject = value.id
+            } else {
+                this.valueCreateProject = 0
+            }
+        },
+
+        clearPasswordValidate() {
+            this.errorsPassword = []
+            this.user.password_confirmation = ''
+        }
     },
     computed: {
         charactersLeft() {
@@ -792,7 +963,7 @@ export default {
     margin-top: 1.1rem !important;
 }
 
-.register-wizard .wizard-nav{
+.register-wizard .wizard-nav {
     position: sticky !important;
     top: 0px !important;
     background-color: white !important;
