@@ -27,7 +27,7 @@ class RegisterController extends Controller
         return response()->json('200');
     }
 
-    public function registerSimple($requests)
+    public function registerSimple($request)
     {
         $this->validate($request, [
             'password' => 'required|confirmed|min:6'
