@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
         Storage::deleteDirectory('users');
         Storage::deleteDirectory('projects');
-
+//
         Storage::makeDirectory('users');
         Storage::makeDirectory('projects');
 
