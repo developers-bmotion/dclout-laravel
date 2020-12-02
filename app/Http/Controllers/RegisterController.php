@@ -23,40 +23,54 @@ class RegisterController extends Controller
     {
         if ($request->valueCreator == '' || $request->valueCreator == 2 || $request->valueCreator == null || $request->valueCreator == 0) {
             $this->registerSimple($request);
+        }else{
+            $this->registerSimple($request);
+            if ($request->valueCreateProject == '' || $request->valueCreateProject == 2 || $request->valueCreateProject == null || $request->valueCreateProject == 0){
+                $this->registerCloud($request);
+            }
         }
         return response()->json('200');
     }
 
     public function registerSimple($request)
     {
-        $this->validate($request, [
-            'password' => 'required|confirmed|min:6'
-        ]);
-        $pass = bcrypt($request->password);
-        $city = json_decode($request->city);
-        $ramdon = Str::random(10);
-        $slug = Str::slug($request->name . '-' . $request->last_name . '-' . $ramdon, '-');
-        $locale = $request->locale;
+//        $this->validate($request, [
+//            'password' => 'required|confirmed|min:6'
+//        ]);
+//        $pass = bcrypt($request->password);
+//        $city = json_decode($request->city);
+//        $ramdon = Str::random(10);
+//        $slug = Str::slug($request->name . '-' . $request->last_name . '-' . $ramdon, '-');
+//        $locale = $request->locale;
+//
+//        $path = '/images/img-perfil-default.png';
+//
+//        if ($request->hasFile('picture')) {
+//            $path = '/storage/' . $request->file('picture')->store('users');
+//        }
+//
+//        $registerSimple = new User;
+//        $registerSimple->name = ucwords($request->name);
+//        $registerSimple->last_name = ucwords($request->last_name);
+//        $registerSimple->email = $request->email;
+//        $registerSimple->phone = $request->phone;
+//        $registerSimple->picture = $path;
+//        $registerSimple->city_id = $city->id;
+//        $registerSimple->slug = $slug;
+//        $registerSimple->password = $pass;
+//
+//        $registerSimple->save();
+//
+//        \Mail::to($registerSimple->email)->locale($locale)->send(new RegisterCloud($registerSimple->name));
+    }
 
-        $path = '/images/img-perfil-default.png';
+    public function registerCloud($request){
+       $category = json_decode($request->category_cloud);
+       $tags = json_decode($request->tag_cloud);
+       $music = json_decode($request->music_cloud);
 
-        if ($request->hasFile('picture')) {
-            $path = '/storage/' . $request->file('picture')->store('users');
-        }
 
-        $registerSimple = new User;
-        $registerSimple->name = ucwords($request->name);
-        $registerSimple->last_name = ucwords($request->last_name);
-        $registerSimple->email = $request->email;
-        $registerSimple->phone = $request->phone;
-        $registerSimple->picture = $path;
-        $registerSimple->city_id = $city->id;
-        $registerSimple->slug = $slug;
-        $registerSimple->password = $pass;
 
-        $registerSimple->save();
-
-        \Mail::to($registerSimple->email)->locale($locale)->send(new RegisterCloud($registerSimple->name));
     }
 
     public function getCloudCategories()
