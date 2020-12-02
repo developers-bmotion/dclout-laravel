@@ -19,8 +19,6 @@ class CreateCloutsTable extends Migration
                 $table->foreign('user_id')->references('id')->on('users');
                 $table->unsignedInteger('level_id');
                 $table->foreign('level_id')->references('id')->on('levels');
-                $table->unsignedInteger('musical_genres_id');
-                $table->foreign('musical_genres_id')->references('id')->on('musical_genres');
                 $table->unsignedInteger('clout_category_id');
                 $table->foreign('clout_category_id')->references('id')->on('cloud_categories');
                 $table->timestamps();

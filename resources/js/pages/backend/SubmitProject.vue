@@ -165,7 +165,7 @@
                                     :msgServer.sync="errors.password"
                                 ></input-form>
                                 <div style="margin-top: -1rem;" v-if="errorsPassword.length > 0"
-                                     v-for="error in errorsPassword">
+                                     v-for="error in errorsPassword" :key="error">
                                     <span class="text-danger" v-text="error"></span><br><br>
                                 </div>
 

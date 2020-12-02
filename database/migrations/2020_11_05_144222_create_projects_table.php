@@ -28,6 +28,7 @@ class CreateProjectsTable extends Migration
 
             ])->default(\App\Project::REVISION);
             $table->timestamp('end_time');
+            $table->unsignedInteger('publisher_id')->nullable();
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('project_category_id');

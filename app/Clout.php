@@ -8,9 +8,12 @@ class Clout extends Model
 {
 
 
+    public function musicalGenres(){
+       return $this->belongsToMany(MusicalGenre::class,'clout_musicalgenres','musical_genres_id','clout_id');
+    }
 
     public function tag(){
-        $this->morphToMany(Tag::class,'taggable');
+        return $this->morphToMany(Tag::class,'taggable');
     }
 
 }

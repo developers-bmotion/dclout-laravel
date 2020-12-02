@@ -41,8 +41,8 @@ class DatabaseSeeder extends Seeder
                 ]
             );
 
-            $category1=\App\CloudCategory::find(1);
-            $category1->setTranslation('name','en','Actor');
+        $category1=\App\CloudCategory::find(1);
+        $category1->setTranslation('name','en','Actor');
         $category1->save();
 
         factory(\App\CloudCategory::class)->create(
@@ -1192,8 +1192,13 @@ class DatabaseSeeder extends Seeder
 
         // agregar clouts
 
-       factory(\App\Clout::class, 10)->create();
+      $clout= factory(\App\Clout::class, 10)->create();
 
+    //   dd(count($clout));
+        $clout->each(function($clout){
+
+            $clout->musicalGenres()->attach(\App\MusicalGenre::all()->random()->id);
+        });
 
        //crear projectos
 

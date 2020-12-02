@@ -12,7 +12,6 @@ $factory->define(Clout::class, function (Faker $faker) {
             'id'=>null,
             'user_id'=>$user[0]->id,
             'level_id'=>1,
-            'musical_genres_id'=>\App\MusicalGenre::all()->random()->id,
             'clout_category_id'=>\App\CloudCategory::all()->random()->id
 
 
