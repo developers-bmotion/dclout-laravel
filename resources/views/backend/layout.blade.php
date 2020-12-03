@@ -31,7 +31,7 @@
     <meta name="author" content="ThemePixels">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/d-logo.png">
 
 
     <title>{{ config('app.name') }}</title>
