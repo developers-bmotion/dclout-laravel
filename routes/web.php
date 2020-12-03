@@ -17,6 +17,10 @@ Route::get('/email-prueba', function (){
    return new \App\Mail\RegisterCloud\RegisterCloud('Mauricio');
 });
 
+Route::get('/data/{id}', function ($id){
+   return \App\User::where('id', $id)->whereHas('clouts')->with('projects','clouts.tag', 'clouts.musicalGenres', 'clouts.categories')->get();
+});
+
 Route::get('/', function (){
    return redirect('/{locale}/register-user');
 });

@@ -21,6 +21,7 @@ return [
     'si' => 'Si',
     'no' => 'No',
     'selecciona' => 'Selecciona',
+    'atencion' => 'Atención',
 
     //Mensajes de confirmación
     'confimar_registro_alerta_mensaje' => '¿Estas seguro de realizar el registro?',

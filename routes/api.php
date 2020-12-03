@@ -19,11 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'register'], function () {
-    Route::get('/get-cloud-categories','RegisterController@getCloudCategories')->name('api.get.cloud.categories');
-    Route::get('/get-cloud-tags','RegisterController@getCloudTags')->name('api.get.cloud.tags');
-    Route::get('/get-cloud-music','RegisterController@getCloudMusic')->name('api.get.cloud.music');
-    Route::get('/get-cloud-countries','RegisterController@getCloudCountries')->name('api.get.cloud.countries');
-    Route::get('/get-cloud-cities/{countryCode}','RegisterController@getCloudCities')->name('api.get.cloud.cities');
+    Route::get('/get-cloud-categories','RegisterController@getCloutCategories')->name('api.get.cloud.categories');
+    Route::get('/get-cloud-tags','RegisterController@getCloutTags')->name('api.get.cloud.tags');
+    Route::get('/get-cloud-music','RegisterController@getCloutMusic')->name('api.get.cloud.music');
+    Route::get('/get-cloud-countries','RegisterController@getCloutCountries')->name('api.get.cloud.countries');
+    Route::get('/get-cloud-cities/{countryCode}','RegisterController@getCloutCities')->name('api.get.cloud.cities');
 
-    Route::post('/store-cloud-register', 'RegisterController@storeCloud')->name('api.tore.cloud.register');
+    Route::post('/store-cloud-register', 'RegisterController@storeClout')->name('api.tore.cloud.register');
 });

@@ -21,6 +21,7 @@ return [
     'si' => 'Yes',
     'no' => 'No',
     'selecciona' => 'Choose',
+    'atencion' => 'Upps!',
 
     //Mensajes de confirmación
     'confimar_registro_alerta_mensaje' => 'Are you sure to register?',

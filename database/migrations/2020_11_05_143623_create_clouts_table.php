@@ -17,7 +17,7 @@ class CreateCloutsTable extends Migration
                 $table->increments('id');
                 $table->unsignedInteger('user_id');
                 $table->foreign('user_id')->references('id')->on('users');
-                $table->unsignedInteger('level_id');
+                $table->unsignedInteger('level_id')->nullable();
                 $table->foreign('level_id')->references('id')->on('levels');
                 $table->unsignedInteger('clout_category_id');
                 $table->foreign('clout_category_id')->references('id')->on('cloud_categories');

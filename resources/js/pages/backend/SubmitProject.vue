@@ -54,12 +54,17 @@
                                     id="txtEmail"
                                     :label="$t('register-aspirant.correo')"
                                     pattern="email"
+                                    v-on:keyup="clearEmailValidate"
                                     :errorMsg="$t('register-aspirant.error_email')"
                                     :requiredMsg="$t('register-aspirant.requerido_email')"
                                     :modelo.sync="user.email"
                                     :required="true"
                                     :msgServer.sync="errors.email"
                                 ></input-form>
+                                <div style="margin-top: -1rem;" v-if="errorsEmail.length > 0"
+                                     v-for="error in errorsEmail" :key="error">
+                                    <span class="text-danger" v-text="error"></span><br><br>
+                                </div>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6">
                                 <label class="form-control-label label-selects">{{
@@ -159,9 +164,10 @@
                                     label="Password"
                                     pattern="all"
                                     type="password"
+                                    requiredMsg="La contraseña es requerida"
                                     v-on:keyup="clearPasswordValidate"
                                     :modelo.sync="user.password"
-                                    :required="false"
+                                    :required="true"
                                     :msgServer.sync="errors.password"
                                 ></input-form>
                                 <div style="margin-top: -1rem;" v-if="errorsPassword.length > 0"
@@ -174,10 +180,11 @@
                                 <input-form
                                     id="txtConfirmPassword"
                                     label="Confirmar Password"
+                                    requiredMsg="La confirmación de contraseña es requerida"
                                     pattern="all"
                                     type="password"
                                     :modelo.sync="user.password_confirmation"
-                                    :required="false"
+                                    :required="true"
                                     :msgServer.sync="errors.password_confirmation"
                                 ></input-form>
                             </div>
@@ -520,10 +527,10 @@ export default {
 
             /*Objeto de Usuarios*/
             user: {
-                name: "Mao",
-                last_name: "Guti",
-                email: "si@mc.com",
-                data_birth: 2020 - 11 - 10,
+                name: "",
+                last_name: "",
+                email: "",
+                data_birth:"",
                 document_num: null,
                 address: "",
                 valueCountry: null,
@@ -562,14 +569,56 @@ export default {
 
             errors: {},
             errorsPassword: [],
+            errorsEmail: [],
             currentTab: 0,
             editor: ClassicEditor,
 
             en: en,
             es: es,
+
+            urlYoutube:'',
+            urlFacebook:'',
+            urlInstagram:'',
+            urlSpotify:'',
+            urlAppleMusic:'',
+            urlSnapcha:'',
+            urlWebSite:'',
         }
     },
     methods: {
+
+        /******************************************************
+         METODOS DE VALIDACIONES AGREGAR REDES SOCIALES
+         *******************************************************/
+        validateUrlSocialNetworks( socialNetworks ) {
+            socialNetworks.map( social => {
+                switch ( social.social ) {
+                    case "YouTube":
+                        this.urlYoutube = social.model;
+                        break;
+                    case "Facebook":
+                        this.urlFacebook = social.model;
+                        break;
+                    case "Instagram":
+                        this.urlInstagram = social.model;
+                        break;
+                    case "Spotify":
+                        this.urlSpotify = social.model;
+                        break;
+                    case "Apple Music":
+                        this.urlAppleMusic = social.model;
+                        break;
+                    case "Snapchat":
+                        this.urlSnapcha = social.model;
+                        break;
+                    case "Website":
+                        this.urlWebSite = social.model;
+                        break;
+                }
+                return social;
+            });
+        },
+
         createNewProjectSubmit() {
             eventBus.$emit("validarFormulario");
             setTimeout(() => {
@@ -595,6 +644,8 @@ export default {
                     return;
                 }
                 const data = new FormData()
+                this.validateUrlSocialNetworks(this.objectSocialNetworks)
+
                 /*=============================================
                     ENVIADO DATOS AL CONTROLADOR
                 =============================================*/
@@ -653,6 +704,26 @@ export default {
                                 resp.errorsPassword = [];
                                 err.response.data.errors.password.map(function (value, key) {
                                     resp.errorsPassword.push(value);
+                                    resp.$refs.wizard.changeTab(resp.currentTab,0);
+                                    return resp.$toast.error({
+                                        title: resp.$t('register-aspirant.atencion'),
+                                        message: value,
+                                        showDuration: 1000,
+                                        hideDuration: 7000,
+                                        position: 'top right',
+                                    })
+                                })
+
+                                err.response.data.errors.email.map(function (value, key) {
+                                    resp.errorsEmail.push(value);
+                                    resp.$refs.wizard.changeTab(resp.currentTab,0);
+                                    return resp.$toast.error({
+                                        title: resp.$t('register-aspirant.atencion'),
+                                        message: value,
+                                        showDuration: 1000,
+                                        hideDuration: 7000,
+                                        position: 'top right',
+                                    })
                                 })
                             }
                         });
@@ -669,7 +740,7 @@ export default {
             data.append('email', this.user.email)
             data.append('password', this.user.password)
             data.append('password_confirmation', this.user.password_confirmation)
-            data.append('locale', this.language)
+            data.append('language', this.language)
             data.append('phone', this.user.phoneI)
             data.append('country', JSON.stringify(this.user.valueCountry))
             data.append('city', JSON.stringify(this.user.valueCity))
@@ -686,6 +757,13 @@ export default {
             data.append('social_network', JSON.stringify(this.objectSocialNetworks))
             data.append('url_project', this.urlProject)
             data.append('description_project', this.descriptionProject)
+            data.append('url_youtube', this.urlYoutube);
+            data.append('url_instagram', this.urlInstagram);
+            data.append('url_applemusic', this.urlAppleMusic);
+            data.append('url_facebook', this.urlFacebook);
+            data.append('url_spotify', this.urlSpotify);
+            data.append('url_snapcha', this.urlSnapcha);
+            data.append('url_website', this.urlWebSite);
         },
 
         validarTab() {
@@ -857,6 +935,9 @@ export default {
         clearPasswordValidate() {
             this.errorsPassword = []
             this.user.password_confirmation = ''
+        },
+        clearEmailValidate() {
+            this.errorsEmail = []
         }
     },
     computed: {

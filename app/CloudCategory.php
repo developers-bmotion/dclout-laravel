@@ -13,4 +13,8 @@ class CloudCategory extends Model
         "name",
         "description"
     ];
+
+    public function clouts(){
+        return $this->hasMany(Clout::class);
+    }
 }

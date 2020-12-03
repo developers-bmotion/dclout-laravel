@@ -10,9 +10,11 @@ class Project extends Model
 
     use HasTranslations;
     const IMAGES_PATH = 'images-projects';
+
     protected $fillable = [
       "name", "description", "link", "end_time", "user_id", "project_category_id"
     ];
+
     protected $translatable =[
 
         "name",

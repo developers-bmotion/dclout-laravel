@@ -15,11 +15,13 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->json('name');
+            $table->json('name')->nullable();
             $table->json('description')->nullable();
+            $table->text('description_short')->nullable();
             $table->string('link')->nullable();
             $table->json('image')->nullable();
             $table->string('video')->nullable();
+            $table->string('slug')->nullable();
             $table->enum('state', [
                 \App\Project::REVISION,
                 \App\Project::PUBLICADO,
@@ -27,11 +29,11 @@ class CreateProjectsTable extends Migration
                 \App\Project::RECHAZADO,
 
             ])->default(\App\Project::REVISION);
-            $table->timestamp('end_time');
+            $table->timestamp('end_time')->nullable();
             $table->unsignedInteger('publisher_id')->nullable();
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedInteger('project_category_id');
+            $table->unsignedInteger('project_category_id')->nullable();
             $table->foreign('project_category_id')->references('id')->on('project_categories');
             $table->timestamps();
         });
