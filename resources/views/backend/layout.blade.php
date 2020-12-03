@@ -89,9 +89,9 @@
         </div>
         <div>
             <nav class="nav">
-                <a href="https://themeforest.net/licenses/standard" class="nav-link">Licenses</a>
-                <a href="../../change-log.html" class="nav-link">Change Log</a>
-                <a href="https://discordapp.com/invite/RYqkVuw" class="nav-link">Get Help</a>
+                <a href="#" class="nav-link">Licenses</a>
+                <a href="#" class="nav-link">Change Log</a>
+                <a href="#" class="nav-link">Get Help</a>
             </nav>
         </div>
     </footer>
