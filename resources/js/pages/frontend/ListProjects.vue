@@ -2,7 +2,7 @@
     <div class="pt-5">
         <div v-if="skeletonValue == 1">
             <div class="row">
-                <div class="col-6 col-md-4 col-lg-4" v-for="skele in 6">
+                <div class="col-12 col-md-4 col-lg-4" v-for="skele in 6">
                     <SkeletonCard
                         primary="#fafafa"
                         structure="7013"
@@ -24,7 +24,7 @@
 <!--            </div>-->
         </div>
         <div class="row" v-if="skeletonValue == 0">
-            <div v-for="card in data.data" :key="card.id" class="col-6 col-md-4 col-lg-4 pb-4">
+            <div v-for="card in data.data" :key="card.id" class="col-12 col-md-4 col-lg-4 pb-4">
                 <div class="card">
                     <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/a6/fc/41/casa-el-paraiso.jpg?w=600&h=300&s=1" class="card-img-top" alt="">
                     <div class="card-body">
