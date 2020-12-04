@@ -15,7 +15,7 @@
                 <a href="#" class="nav-link">home.</a>
             </li>
             <li class="nav-item  custom-menu">
-                <a href="#" class="nav-link"> services.</a>
+                <a href="/es/projects" class="nav-link"> services.</a>
             </li>
             <li class="nav-item  custom-menu">
                 <a href="#" class="nav-link"> crew.</a>
