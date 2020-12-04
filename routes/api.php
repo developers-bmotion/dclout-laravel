@@ -27,3 +27,7 @@ Route::group(['prefix' => 'register'], function () {
 
     Route::post('/store-cloud-register', 'RegisterController@storeClout')->name('api.tore.cloud.register');
 });
+
+Route::group(['prefix' => 'projects'], function () {
+    Route::get('/get-list-projects','ProjectController@getListProjects')->name('api.get.list.projects');
+});

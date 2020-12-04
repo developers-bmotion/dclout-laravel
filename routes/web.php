@@ -51,6 +51,10 @@ Route::group(['prefix' => '{locale}'], function () {
         Route::get('/profile', 'UserController@indexProfile')->name('index.user.profile');
 //    });
 
+    /*=============================================
+     VISTAS PROYECTOS
+     =============================================*/
+    Route::get('/projects', 'ProjectController@indexListProjects')->name('index.list.project');
 
 
 });

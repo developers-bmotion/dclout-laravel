@@ -43,9 +43,15 @@ Vue.use(VueFormWizard)
 //Componentes
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
 
-// Componentes de la página
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+/*=============================================
+VISTAS DEL PERFIL
+=============================================*/
 Vue.component('submit-project', require('./pages/backend/SubmitProject.vue').default);
+
+/*=============================================
+VISTAS DEL PROYECTO
+=============================================*/
+Vue.component('list-project', require('./pages/frontend/ListProjects').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

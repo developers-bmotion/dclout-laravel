@@ -20,17 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3a55fe3-bd9f-43b3-9e0a-02f6bd8652c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/profile/profile-clout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/pages/frontend/ListProjects.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Project/ProjectController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/vue-i18n-locales.generated.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/vue-i18n-locales.generated.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/register-aspirant.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/register-aspirant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/partials/navigation-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/navigation-header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/project/submit-project.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/register/submit-register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/frontend/ListProject.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/projects/list-project.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/projects/list-project.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,9 +43,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -241,6 +238,7 @@
       <workItem from="1607012598302" duration="3940000" />
       <workItem from="1607025513110" duration="35000" />
       <workItem from="1607027343834" duration="1838000" />
+      <workItem from="1607092307530" duration="4410000" />
     </task>
     <servers />
   </component>
@@ -291,10 +289,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="524" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1606349931650" />
-    <state x="2065" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1607030311586">
+    <state x="2065" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1607092712750">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2065" y="241" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607030311586" />
+    <state x="2065" y="241" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607092712750" />
     <state x="469" y="201" width="670" height="564" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606964389083" />
   </component>
 </project>
