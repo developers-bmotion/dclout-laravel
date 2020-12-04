@@ -1,9 +1,9 @@
-@extends('backend.layout')
+@extends('frontend.layout')
 
 @section('header')
     <x-header>
         <x-slot name="title">
-            <h1 class="tx-normal" style="padding-top: 10rem">{{ __('Presenta_Proyecto') }}</h1>
+            <h1 class="tx-normal" style="padding-top: 10rem">¡{{ __('email.hola') }}!</h1>
         </x-slot>
         Lorem ipsum dolor si amet, an dus situ sint pertinacia constituto, mir dignsius
     </x-header>

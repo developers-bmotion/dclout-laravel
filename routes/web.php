@@ -34,7 +34,25 @@ RUTAS PARA LAS PAGINAS
 
 /*RUTAS PARA EL REGISTRO DE USUARIOS*/
 Route::group(['prefix' => '{locale}'], function () {
+
+    /*=============================================
+        LANDING PAGG
+    =============================================*/
     Route::get('/register-user','RegisterController@indexRegister')->name('index.register');
+
+    /*==========================================================================================*
+        VISTAS PARA USUARIOS AUTENTICADOS
+    =============================================*=============================================*/
+
+    /*=============================================
+     VISTAS DEL PERFIL
+     =============================================*/
+//    Route::group(['middleware' => ''], function (){
+        Route::get('/profile', 'UserController@indexProfile')->name('index.user.profile');
+//    });
+
+
+
 });
 
 
