@@ -38,6 +38,7 @@
         "vue-i18n": "^8.22.2",
         "vue-multiselect": "^2.1.6",
         "vue-phone-number-input": "^1.1.10",
+        "vue-ultimate-skeleton-cards": "^1.0.3",
         "vuejs-datepicker": "^1.6.2",
         "vuesax": "^3.12.2"
     }

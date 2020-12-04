@@ -16,7 +16,8 @@ Vue.use(Vuesax);
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 Vue.use( CKEditor );
 
-
+import SkeletonCards from 'vue-ultimate-skeleton-cards';
+Vue.use(SkeletonCards);
 
 
 import CxltToastr from 'cxlt-vue2-toastr';
