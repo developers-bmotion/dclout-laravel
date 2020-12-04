@@ -12,10 +12,10 @@
         <ul class="nav navbar-menu">
             {{-- <li class="nav-label pd-l-20 pd-lg-l-25 d-lg-none">Main Navigation</li> --}}
             <li class="nav-item  active custom-menu">
-                <a href="#" class="nav-link">home.</a>
+                <a href="" class="nav-link">home.</a>
             </li>
             <li class="nav-item  custom-menu">
-                <a href="/es/projects" class="nav-link"> services.</a>
+                <a href="#" class="nav-link"> services.</a>
             </li>
             <li class="nav-item  custom-menu">
                 <a href="#" class="nav-link"> crew.</a>
