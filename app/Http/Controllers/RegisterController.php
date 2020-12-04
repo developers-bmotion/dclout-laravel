@@ -18,7 +18,7 @@ class RegisterController extends Controller
 {
     public function indexRegister()
     {
-        return view('backend.project.submit-project');
+        return view('frontend.register.submit-register');
     }
 
 

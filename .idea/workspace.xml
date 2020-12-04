@@ -20,8 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3a55fe3-bd9f-43b3-9e0a-02f6bd8652c8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/frontend/profile/profile-clout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Project/ProjectController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/vue-i18n-locales.generated.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/vue-i18n-locales.generated.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/register-aspirant.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/register-aspirant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/partials/navigation-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/navigation-header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/project/submit-project.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/register/submit-register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +190,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -228,7 +239,8 @@
       <workItem from="1606918815481" duration="253000" />
       <workItem from="1606927407743" duration="10485000" />
       <workItem from="1607012598302" duration="3940000" />
-      <workItem from="1607025513110" duration="23000" />
+      <workItem from="1607025513110" duration="35000" />
+      <workItem from="1607027343834" duration="1838000" />
     </task>
     <servers />
   </component>
@@ -256,14 +268,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="384" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1606964366860" />
+    <state x="2144" y="370" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607030147501">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2144" y="370" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607030147501" />
     <state x="391" y="167" key="NewPhpClassDialog" timestamp="1604544378512">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="391" y="167" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1604544378512" />
-    <state x="543" y="376" key="NewPhpFileDialog" timestamp="1606690327265">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="2164" y="451" key="NewPhpFileDialog" timestamp="1607030657004">
+      <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2164" y="451" key="NewPhpFileDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1605803549394" />
+    <state x="2164" y="451" key="NewPhpFileDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607030657004" />
     <state x="543" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1606690327265" />
     <state x="1909" y="179" key="SettingsEditor" timestamp="1606422455840">
       <screen x="1440" y="0" width="1920" height="1080" />
@@ -275,10 +291,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="524" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1606349931650" />
-    <state x="469" y="201" width="670" height="564" key="search.everywhere.popup" timestamp="1606964389083">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="2065" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1607030311586">
+      <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2065" y="241" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1605645826235" />
+    <state x="2065" y="241" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607030311586" />
     <state x="469" y="201" width="670" height="564" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1606964389083" />
   </component>
 </project>

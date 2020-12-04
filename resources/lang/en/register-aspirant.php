@@ -53,7 +53,7 @@ return [
     'seleccionar_categoria_profiling' => 'Choose the category you relate the most',
     'seleccionar_tags_profiling' => 'Choose the taggs you feel more related to ',
     'seleccionar_music_profiling' => 'Choose the music genre you feel more related to',
-    'mensaje_desea_enviar_proyecto' => 'Do you have an innovation project you want to show us? Select yes and send us information about it',
+    'mensaje_desea_enviar_proyecto' => 'Do you have an innovation register you want to show us? Select yes and send us information about it',
 
     //Mensajes de requerido
     'requerido_selecc_categoria_perfilacion' => 'You must select a category',
@@ -67,15 +67,15 @@ return [
     'error_cargar_mensaje_cloud_countries' => 'Error loading countries',
 
     //PRESENTA TU PROYECTO----------------------------------------------------------------------------------------------
-    'presenta_proyecto' => 'Present your project',
+    'presenta_proyecto' => 'Present your register',
     'select_redes_sociales' => 'Select social networks',
     'requerido_select_redes_sociales' => 'You must select at least one social network',
     'error_msg_url' => 'Please enter a valid URL',
     'requerido_msg_url' => 'URL is required',
-    'url_proyecto' => 'Url project',
+    'url_proyecto' => 'Url register',
     'error_url' => 'Please enter a valid URL',
     'requerido_url' => 'URL is required',
-    'descripcion_proyecto' => 'Describe your project in 500 words',
+    'descripcion_proyecto' => 'Describe your register in 500 words',
     'error_descripcion_proyecto' => 'Please enter a valid description',
     'requerido_descripcion_proyecto' => 'Description required',
     'caracteres_restantes' => 'Characters remaining',

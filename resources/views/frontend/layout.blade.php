@@ -60,7 +60,7 @@
         <!--=====================================
     HEADER QUE CONTIENE EL MENU, NOTIFICACIONES Y EL AVATAR DEL PERFIL
     ======================================-->
-        @include('backend.partials.navigation-header')
+        @include('frontend.partials.navigation-header')
         <!--=====================================
 	HEADER O TITULO DE LA SECCIÓN
 ======================================-->
