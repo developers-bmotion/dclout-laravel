@@ -22,8 +22,8 @@ Vue.use(SkeletonCards);
 import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload)
 Vue.use(VueLazyload, {
-    preLoad: 1.3,
-    error: 'dist/error.png',
+    preLoad: 3,
+    error: 'https://images.homify.com/c_fill,f_auto,q_0,w_740/v1526483607/p/photo/image/2561426/3.jpg',
     loading: 'https://images.homify.com/c_fill,f_auto,q_0,w_740/v1526483607/p/photo/image/2561426/3.jpg',
     attempt: 1
 })

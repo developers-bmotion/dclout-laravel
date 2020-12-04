@@ -20,13 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3a55fe3-bd9f-43b3-9e0a-02f6bd8652c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/LazyLoadingImage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/frontend/ListProjects.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/frontend/ListProjects.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +232,7 @@
       <workItem from="1607012598302" duration="3940000" />
       <workItem from="1607025513110" duration="35000" />
       <workItem from="1607027343834" duration="1838000" />
-      <workItem from="1607092307530" duration="8080000" />
+      <workItem from="1607092307530" duration="8529000" />
     </task>
     <servers />
   </component>
