@@ -19,6 +19,15 @@ Vue.use( CKEditor );
 import SkeletonCards from 'vue-ultimate-skeleton-cards';
 Vue.use(SkeletonCards);
 
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+Vue.use(VueLazyload, {
+    preLoad: 1.3,
+    error: 'dist/error.png',
+    loading: 'https://images.homify.com/c_fill,f_auto,q_0,w_740/v1526483607/p/photo/image/2561426/3.jpg',
+    attempt: 1
+})
+
 
 import CxltToastr from 'cxlt-vue2-toastr';
 Vue.use(CxltToastr);
@@ -42,6 +51,7 @@ Vue.use(VueFormWizard)
 
 //Componentes
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
+Vue.component('lazy-image', require('./components/LazyLoadingImage.vue').default);
 
 /*=============================================
 VISTAS DEL PERFIL

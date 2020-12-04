@@ -22,6 +22,7 @@
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10",
+        "vue2-image-loader": "^1.0.3",
         "vuejs-form": "^1.2.9"
     },
     "dependencies": {
@@ -36,6 +37,7 @@
         "vue-confirm-dialog": "^1.0.2",
         "vue-form-wizard": "^0.8.4",
         "vue-i18n": "^8.22.2",
+        "vue-lazyload": "^1.3.3",
         "vue-multiselect": "^2.1.6",
         "vue-phone-number-input": "^1.1.10",
         "vue-ultimate-skeleton-cards": "^1.0.3",
