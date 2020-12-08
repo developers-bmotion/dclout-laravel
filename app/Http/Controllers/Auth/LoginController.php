@@ -38,27 +38,27 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-//    public function logout (Request $request) {
-//        $language = session('language');
+    public function logout (Request $request) {
+        $language = session('language');
+
+        auth()->logout();
+        session()->flush();
+
+        session()->put('language', $language);
+        return redirect('/'.$language.'/'.'login');
+    }
+
+//    public function logout(Request $request)
+//    {
+//        $this->guard()->logout();
 //
-//        auth()->logout();
-//        session()->flush();
+//        $request->session()->invalidate();
 //
-//        session()->put('language', $language);
 //        return redirect('/login');
 //    }
 
-    public function logout(Request $request)
-    {
-        $this->guard()->logout();
-
-        $request->session()->invalidate();
-
-        return redirect('/login');
-    }
-
     public function redirectPath()
     {
-        return sprintf('/%s/register-user', session('language'));
+        return sprintf('/%s/profile', session('language'));
     }
 }

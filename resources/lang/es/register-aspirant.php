@@ -48,6 +48,10 @@ return [
     'requerido_telefono' => 'El teléfono es requerido',
     'requerido_seleccionar_pais' => 'Debes seleccionar tu pais',
     'requerido_seleccionar_ciudad' => 'Debes seleccionar tu ciudad',
+    'msg_contraseña_requerida' => 'La contraseña es requerida',
+    'msg_contraseña__confirmacion_requerida' => 'Confirmación de contraseña requerida',
+    'contraseña' => 'Contraseña',
+    'confirmar_contraseña' => 'Confirmar Contraseña',
 
     //PERFILACIÓN-------------------------------------------------------------------------------------------------------
     'seleccionar_categoria_profiling' => 'Elige la categoría que más se relacione a ti',

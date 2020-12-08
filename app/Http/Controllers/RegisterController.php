@@ -12,6 +12,7 @@ use App\Project;
 use App\Tag;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class RegisterController extends Controller
@@ -62,6 +63,22 @@ class RegisterController extends Controller
 
             $this->registerCloutProject($request, $registerSimple);
         }
+
+        if ($request->valueCreator == 1 || $request->valueCreateProject == 1){
+            if(Auth::attempt(['email' => $registerSimple->email, 'password' => $pass])){
+                $user = Auth::user();
+                $username = $user->name;
+                return response()->json([
+                    'status'   => 'success',
+                    'user' => $username,
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'user'   => 'Unauthorized Access'
+                ]);
+            }
+        }
     }
 
     public function registerClout($request, $user)
@@ -91,7 +108,7 @@ class RegisterController extends Controller
             'url_twitch' => $request->url_twitch,
             'url_spotify' => $request->url_spotify,
             'url_apple_music' => $request->url_applemusic,
-            'url_website' => $request->url_website
+            'web_site' => $request->url_website
         ]);
     }
 

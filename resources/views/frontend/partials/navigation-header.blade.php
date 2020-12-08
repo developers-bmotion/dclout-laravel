@@ -109,17 +109,17 @@
 
     <div class="navbar-right">
         @if(env('APP_ENV') === 'local')
-{{--            <div class="custom-control custom-switch mr-4">--}}
-{{--                <input type="checkbox" class="custom-control-input" data-type="1" id="customSwitch3">--}}
-{{--                <label class="custom-control-label dark-switch" for="customSwitch3"></label>--}}
-{{--            </div>--}}
+            {{--            <div class="custom-control custom-switch mr-4">--}}
+            {{--                <input type="checkbox" class="custom-control-input" data-type="1" id="customSwitch3">--}}
+            {{--                <label class="custom-control-label dark-switch" for="customSwitch3"></label>--}}
+            {{--            </div>--}}
         @endif
         @guest
         @else
             <a id="navbarSearch" href="" class="search-link"><i data-feather="search"></i></a>
         @endguest
-            @guest
-            @else
+        @guest
+        @else
             <div class="dropdown dropdown-notification">
                 <a href="" class="dropdown-link new-indicator" data-toggle="dropdown">
                     <i data-feather="bell"></i>
@@ -141,30 +141,32 @@
                     <div class="dropdown-footer"><a href="">View all Notifications</a></div>
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->
-            @endguest
-        <div class="dropdown dropdown-message pr-1">
-            <a href="" class="dropdown-link new-indicator" data-toggle="dropdown">
-                {{ session('language') == 'es' ? 'ES' : 'EN'  }}
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-header">{{ __('Seleccionar_Idioma') }}</div>
-                <a href="{{ route('set_lenguage', ['en']) }}" class="dropdown-item">
-                    <div class="media">
-                        <div class="media-body mg-l-15">
-                            <strong>EN</strong>
-                        </div><!-- media-body -->
-                    </div><!-- media -->
+        @endguest
+        @if(request()->path() !== 'login')
+            <div class="dropdown dropdown-message pr-1">
+                <a href="" class="dropdown-link new-indicator" data-toggle="dropdown">
+                    {{ session('language') == 'es' ? 'ES' : 'EN'  }}
                 </a>
-                <a href="{{ route('set_lenguage', ['es']) }}" class="dropdown-item">
-                    <div class="media">
-                        <div class="media-body mg-l-15">
-                            <strong>ES</strong>
-                        </div><!-- media-body -->
-                    </div><!-- media -->
-                </a>
-                <div class="dropdown-footer"><a href=""></a></div>
-            </div><!-- dropdown-menu -->
-        </div><!-- dropdown -->
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-header">{{ __('Seleccionar_Idioma') }}</div>
+                    <a href="{{ route('set_lenguage', ['en']) }}" class="dropdown-item">
+                        <div class="media">
+                            <div class="media-body mg-l-15">
+                                <strong>EN</strong>
+                            </div><!-- media-body -->
+                        </div><!-- media -->
+                    </a>
+                    <a href="{{ route('set_lenguage', ['es']) }}" class="dropdown-item">
+                        <div class="media">
+                            <div class="media-body mg-l-15">
+                                <strong>ES</strong>
+                            </div><!-- media-body -->
+                        </div><!-- media -->
+                    </a>
+                    <div class="dropdown-footer"><a href=""></a></div>
+                </div><!-- dropdown-menu -->
+            </div><!-- dropdown -->
+        @endif
         @guest
         @else
             <div class="dropdown dropdown-profile">
@@ -174,21 +176,24 @@
                     </div>
                 </a><!-- dropdown-link -->
                 <div class="dropdown-menu dropdown-menu-right tx-13">
-                    <div class="avatar avatar-lg mg-b-15"><img src="https://via.placeholder.com/500"
+                    <div class="avatar avatar-lg mg-b-15" style="text-align: -webkit-center; margin-left: 3.2rem !important;"><img src="https://via.placeholder.com/500"
                                                                class="rounded-circle"
                                                                alt=""></div>
-                    <h6 class="tx-semibold mg-b-5">Katherine Pechon</h6>
-                    <p class="mg-b-25 tx-12 tx-color-03">Administrator</p>
-                    <a href="" class="dropdown-item"><i data-feather="edit-3"></i> Edit Profile</a>
-                    <a href="page-profile-view.html" class="dropdown-item"><i data-feather="user"></i> View Profile</a>
+                    <h6 class="tx-semibold mg-b-5 text-center">{{ auth()->user()->name }} {{ auth()->user()->last_name }}</h6>
+                    <p class="mg-b-25 tx-12 tx-color-03 text-center">{{auth()->user()->clouts[0]->categories->name}}</p>
+                    <a href="/{{ session('language') }}/profile" class="dropdown-item index-edit-profile" index-tab="2"><i data-feather="edit-3"></i> {{__('editar_perfil')}}</a>
+                    <a href="/{{ session('language') }}/profile" class="dropdown-item"><i data-feather="user"></i> {{ __('ver_perfil') }}</a>
+                    <a href="/{{ session('language') }}/profile" class="dropdown-item index-view-project-aprovaded" index-tab="1"><i data-feather="life-buoy"></i>{{ __('project_aprovaded') }}</a>
                     <div class="dropdown-divider"></div>
-                    <a href="page-help-center.html" class="dropdown-item"><i data-feather="help-circle"></i> Help Center</a>
-                    <a href="" class="dropdown-item"><i data-feather="life-buoy"></i> Forum</a>
-                    <a href="" class="dropdown-item"><i data-feather="settings"></i>Account Settings</a>
-                    <a href="" class="dropdown-item"><i data-feather="settings"></i>Privacy Settings</a>
+{{--                    <a href="page-help-center.html"  class="dropdown-item"><i data-feather="help-circle"></i> Help Center</a>--}}
+{{--                    <a href="" class="dropdown-item"><i data-feather="life-buoy"></i> Forum</a>--}}
+{{--                    <a href="" class="dropdown-item"><i data-feather="settings"></i>Account Settings</a>--}}
+{{--                    <a href="" class="dropdown-item"><i data-feather="settings"></i>Privacy Settings</a>--}}
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                    <button type="submit" href="page-signin.html" class="dropdown-item pt-3 pl-1"><i data-feather="log-out"></i>Sign Out</button>
+                        <button type="submit" href="page-signin.html" class="dropdown-item pt-3 pl-1"><i
+                                data-feather="log-out"></i>{{ __('cerrar_sesion') }}
+                        </button>
                     </form>
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->
@@ -227,3 +232,19 @@
         </div><!-- navbar-search-body -->
     </div><!-- navbar-search -->
 </header>
+
+@push('js')
+    <script>
+        $(function() {
+            $(".index-edit-profile").on('click', function () {
+                let indexEditProfile = $(this).attr('index-tab');
+                window.localStorage.setItem('indexTab',indexEditProfile);
+            });
+            $(".index-view-project-aprovaded").on('click', function () {
+                let indexProjectAprovaded = $(this).attr('index-tab');
+                window.localStorage.setItem('indexTab',indexProjectAprovaded);
+            });
+        });
+
+    </script>
+@endpush

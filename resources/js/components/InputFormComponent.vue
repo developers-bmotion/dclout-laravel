@@ -1,12 +1,17 @@
 <template>
 
-    <div :class="'form-group input-material '+clases">
+    <div :class="'form-group '+clases">
+        <label v-if="showLabel" class="form-control-label" :for="id">
+            <span  v-text="label"></span>
 
+            <span class="text-danger" v-if="required">*</span>
+            <slot name="toltip"></slot>
+        </label>
         <datepicker
             v-if="type === 'date'"
             :language="es"
-            :input-class="((!validated||msgServer) ? 'is-invalid': '')"
-            placeholder=""
+            :input-class="'form-control '+((!validated||msgServer) ? 'is-invalid': '')"
+            placeholder="formato 1998-06-06"
             :class="((!validated||msgServer) ? 'is-invalid': '')"
             :full-month-name="true"
             format="yyyy-MM-dd"
@@ -21,7 +26,7 @@
             class="form-control"
             :class="(!validated||msgServer) ? 'is-invalid': ''"
             :id="id"
-            placeholder=""
+            :placeholder="label"
             :value="modelo"
             :required="required"
             v-on:input="change($event.target.value)"
@@ -36,8 +41,7 @@
             :required="required"
             v-bind="multiselect"
             :value="modelo"
-            @input="change($event, true)"
-            @select="change($event)"
+            @input="change($event)"
         ></multiselect>
         <money
             v-else-if="type === 'money'"
@@ -58,7 +62,7 @@
             class="form-control"
             :class="(!validated||msgServer) ? 'is-invalid': ''"
             :id="id"
-            placeholder=""
+            :placeholder="label"
             :required="required"
             :value="modelo"
             v-on:input="change($event.target.value)"
@@ -73,18 +77,13 @@
             class="invalid-feedback"
             v-if="!validated || msgServer"
         >{{ msgServer ? msgServer[0] : ( (!validated&&noValue) ? requiredMsg : errorMsg )}}</div>
-        <label v-if="showLabel" class="form-control-label" :for="id">
-            <span  v-text="label"></span>
-
-          <!--  <span class="text-danger" v-if="required">*</span>-->
-            <slot name="toltip"></slot>
-        </label>
     </div>
 </template>
 <script>
 import { en, es } from "vuejs-datepicker/dist/locale";
 import Datepicker from "vuejs-datepicker";
 import Multiselect from "vue-multiselect";
+
 export default {
     data: function() {
         return {
@@ -157,6 +156,7 @@ export default {
         eventBus.$on("validarFormulario", () => {
             this.changeFocus();
         });
+
         switch (this.pattern) {
             case "num":
                 this.validator = /^[0-9 ]+$/iu;
@@ -207,6 +207,7 @@ export default {
             } else if (this.modelo) {
                 this.valorActual = this.modelo;
             }
+
             if (this.type === "date") {
                 this.validated = this.required
                     ? !this.isEmpty(this.valorActual)

@@ -61,7 +61,8 @@ Vue.component('input-form', require('./components/InputFormComponent.vue').defau
 VISTAS DEL PERFIL
 =============================================*/
 Vue.component('submit-project', require('./pages/backend/SubmitProject.vue').default);
-Vue.component('profile-clout', require('./pages/frontend/ProfileClout.vue').default);
+Vue.component('profile-clout', require('./pages/frontend/profile/ProfileClout.vue').default);
+Vue.component('edit-profile', require('./pages/frontend/profile/EditProfile.vue').default);
 
 /*=============================================
 VISTAS DEL PROYECTO

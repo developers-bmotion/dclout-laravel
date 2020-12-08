@@ -67,12 +67,9 @@
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6">
-                                <label class="form-control-label label-selects">{{
-                                        $t('register-aspirant.selecciona_pais')
-                                    }} <span class="text-danger">*</span></label>
                                 <input-form
                                     class="input-label-register"
-                                    label=""
+                                    :label="$t('register-aspirant.selecciona_pais')"
                                     id="txtCountry"
                                     errorMsg
                                     :requiredMsg="$t('register-aspirant.requerido_seleccionar_pais')"
@@ -95,12 +92,9 @@
                                 ></input-form>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6">
-                                <label class="form-control-label label-selects">{{
-                                        $t('register-aspirant.selecciona_ciudad')
-                                    }} <span class="text-danger">*</span></label>
                                 <input-form
                                     class="input-label-register"
-                                    label=""
+                                    :label="$t('register-aspirant.selecciona_ciudad')"
                                     id="txtCity"
                                     errorMsg
                                     :requiredMsg="$t('register-aspirant.requerido_seleccionar_ciudad')"
@@ -161,10 +155,10 @@
                             <div class="col-12 col-lg-6 col-md-6">
                                 <input-form
                                     id="txtPassword"
-                                    label="Password"
+                                    :label="$t('register-aspirant.contraseña')"
                                     pattern="all"
                                     type="password"
-                                    requiredMsg="La contraseña es requerida"
+                                    :requiredMsg="$t('register-aspirant.msg_contraseña_requerida')"
                                     v-on:keyup="clearPasswordValidate"
                                     :modelo.sync="user.password"
                                     :required="true"
@@ -179,8 +173,8 @@
                             <div class="col-12 col-lg-6 col-md-6">
                                 <input-form
                                     id="txtConfirmPassword"
-                                    label="Confirmar Password"
-                                    requiredMsg="La confirmación de contraseña es requerida"
+                                    :label="$t('register-aspirant.confirmar_contraseña')"
+                                    :requiredMsg="$t('register-aspirant.msg_contraseña__confirmacion_requerida')"
                                     pattern="all"
                                     type="password"
                                     :modelo.sync="user.password_confirmation"
@@ -234,10 +228,9 @@
                     <section class="pb-5" style="width: 100%; height: 100%" v-if="currentTab===1">
                         <div class="row">
                             <div class="col-12 col-lg-6 col-md-6 profiling">
-                                <label>{{ $t('register-aspirant.select_redes_sociales') }} <span
-                                    class="text-danger">*</span></label>
+
                                 <input-form
-                                    label=""
+                                    :label="$t('register-aspirant.select_redes_sociales')"
                                     id="txtSocialNetworks"
                                     :requiredMsg="$t('register-aspirant.requerido_select_redes_sociales')"
                                     :required="true"
@@ -268,7 +261,7 @@
                                 class="col-md-4 col-lg-4 col-12"
                             >
                                 <input-form
-                                    :label="'Url '+inputsSocial.social"
+                                    :label="'Link '+inputsSocial.social"
                                     :id="'txt'+inputsSocial+'Artist'"
                                     pattern="url"
                                     :placeholder="inputsSocial.social+'url'"
@@ -281,10 +274,8 @@
                         </div>
                         <div class="row pt-4">
                             <div class="col-12 col-lg-6 col-md-6 profiling">
-                                <label>{{ $t('register-aspirant.seleccionar_categoria_profiling') }} <span
-                                    class="text-danger">*</span></label>
                                 <input-form
-                                    label=""
+                                    :label="$t('register-aspirant.seleccionar_categoria_profiling')"
                                     id="txtCategoryProfiling"
                                     errorMsg
                                     :requiredMsg="$t('register-aspirant.requerido_selecc_categoria_perfilacion')"
@@ -306,10 +297,8 @@
                                 ></input-form>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6 profiling">
-                                <label>{{ $t('register-aspirant.seleccionar_tags_profiling') }} <span
-                                    class="text-danger">*</span></label>
                                 <input-form
-                                    label=""
+                                    :label="$t('register-aspirant.seleccionar_tags_profiling')"
                                     id="txtTagsProfiling"
                                     :requiredMsg="$t('register-aspirant.requerido_selecc_tags_perfilacion')"
                                     :required="true"
@@ -333,10 +322,8 @@
                                 ></input-form>
                             </div>
                             <div class="col-12 col-lg-6 col-md-6 profiling">
-                                <label>{{ $t('register-aspirant.seleccionar_music_profiling') }} <span
-                                    class="text-danger">*</span></label>
                                 <input-form
-                                    label=""
+                                    :label="$t('register-aspirant.seleccionar_music_profiling')"
                                     id="txtMusicProfiling"
                                     :requiredMsg="$t('register-aspirant.requerido_selecc_music_perfilacion')"
                                     :required="true"
@@ -711,6 +698,8 @@ export default {
                                 hideDuration: 5000,
                                 position: 'top right',
                             })
+                            console.log('/'+this.language+"/profile")
+                            window.location = '/'+this.language+"/profile";
                         }).catch(err => {
                             resp.$vs.loading.close()
                             if (err.response.status !== 422) {

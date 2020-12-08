@@ -48,6 +48,10 @@ return [
     'requerido_telefono' => 'The phone is required',
     'requerido_seleccionar_pais' => 'You must select your country',
     'requerido_seleccionar_ciudad' => 'You must select your city',
+    'msg_contraseña_requerida' => 'Password is required',
+    'msg_contraseña__confirmacion_requerida' => 'Password confirmation required',
+    'contraseña' => 'Password',
+    'confirmar_contraseña' => 'Confirm Password',
 
     //PERFILACIÓN-------------------------------------------------------------------------------------------------------
     'seleccionar_categoria_profiling' => 'Choose the category you relate the most',

@@ -1,4 +1,11 @@
 {
     "Seleccionar_Idioma" : "Select language",
-    "Presenta_Proyecto" : "Present your project"
+    "Presenta_Proyecto" : "Present your project",
+
+    "msg_bievenido_login": "Welcome back! Please signin to continue.",
+
+    "editar_perfil": "Edit Profile",
+    "project_aprovaded": "Approved Projects",
+    "ver_perfil": "View Profile",
+    "cerrar_sesion": "Sign Out"
 }
