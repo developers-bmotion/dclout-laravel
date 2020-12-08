@@ -4,12 +4,9 @@
 
 @endsection
 @section('content')
-    <div class="row justify-content-center">
-        <div class="col-lg-9 col-md-9 col-12">
-
-        </div>
+    <div class="pt-5">
+        <profile-clout></profile-clout>
     </div>
-
 @endsection
 @push('js')
     <script>

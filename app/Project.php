@@ -12,7 +12,7 @@ class Project extends Model
     const IMAGES_PATH = 'images-projects';
 
     protected $fillable = [
-      "name", "description", "link", "end_time", "user_id", "project_category_id"
+      "name", "description", "link", "end_time", "user_id", "project_category_id",'name_initial'
     ];
 
     protected $translatable =[

@@ -51,7 +51,7 @@
     .profile-info-list a {
       transition: none; } }
   .profile-info-list a:hover, .profile-info-list a:focus {
-    color: #0168fa; }
+    color: #10b759; }
 
 .profile-info-list svg {
   width: 18px;
@@ -194,7 +194,7 @@
     background-color: #fff;
     width: 11px;
     height: 11px;
-    border: 2px solid #0168fa;
+    border: 2px solid #10b759;
     border-radius: 100%; }
   .timeline-body h6 {
     line-height: 1.5; }

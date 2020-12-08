@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -37,13 +38,22 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function logout (Request $request) {
-        $language = session('language');
+//    public function logout (Request $request) {
+//        $language = session('language');
+//
+//        auth()->logout();
+//        session()->flush();
+//
+//        session()->put('language', $language);
+//        return redirect('/login');
+//    }
 
-        auth()->logout();
-        session()->flush();
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
 
-        session()->put('language', $language);
+        $request->session()->invalidate();
+
         return redirect('/login');
     }
 

@@ -41,7 +41,9 @@ class CreateUsersTable extends Migration
             $table->string('url_facebook')->nullable();
             $table->string('url_youtube')->nullable();
             $table->string('url_instagram')->nullable();
-            $table->string('url_snapcha')->nullable();
+            $table->string('url_tiktok')->nullable();
+            $table->string('url_twitter')->nullable();
+            $table->string('url_twitch')->nullable();
             $table->string('url_spotify')->nullable();
             $table->string('url_apple_music')->nullable();
             $table->string('web_site')->nullable();

@@ -44,6 +44,7 @@
 
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="/assets/css/dashforge.css">
+    <link rel="stylesheet" href="/assets/css/dashforge.profile.css">
     <link rel="stylesheet" href="/css/propios.css">
     <link rel="stylesheet" href="/css/input-material.css">
 

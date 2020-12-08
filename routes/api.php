@@ -25,7 +25,11 @@ Route::group(['prefix' => 'register'], function () {
     Route::get('/get-cloud-countries','RegisterController@getCloutCountries')->name('api.get.cloud.countries');
     Route::get('/get-cloud-cities/{countryCode}','RegisterController@getCloutCities')->name('api.get.cloud.cities');
 
-    Route::post('/store-cloud-register', 'RegisterController@storeClout')->name('api.tore.cloud.register');
+    Route::post('/store-cloud-register', 'RegisterController@storeClout')->name('api.store.cloud.register');
+});
+
+Route::group(['prefix' => 'profile'], function () {
+    Route::get('/get-user-profile-clout', 'UserController@getUserProfileClout')->name('api.get.user.profile.clout');
 });
 
 Route::group(['prefix' => 'projects'], function () {

@@ -49,14 +49,19 @@ import VueFormWizard from 'vue-form-wizard'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 Vue.use(VueFormWizard)
 
+import VueGoodTablePlugin from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css'
+Vue.use(VueGoodTablePlugin);
+
 //Componentes
 Vue.component('input-form', require('./components/InputFormComponent.vue').default);
-Vue.component('lazy-image', require('./components/LazyLoadingImage.vue').default);
+
 
 /*=============================================
 VISTAS DEL PERFIL
 =============================================*/
 Vue.component('submit-project', require('./pages/backend/SubmitProject.vue').default);
+Vue.component('profile-clout', require('./pages/frontend/ProfileClout.vue').default);
 
 /*=============================================
 VISTAS DEL PROYECTO

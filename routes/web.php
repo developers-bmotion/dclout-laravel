@@ -47,9 +47,9 @@ Route::group(['prefix' => '{locale}'], function () {
     /*=============================================
      VISTAS DEL PERFIL
      =============================================*/
-//    Route::group(['middleware' => ''], function (){
+    Route::group(['middleware' => 'auth'], function (){
         Route::get('/profile', 'UserController@indexProfile')->name('index.user.profile');
-//    });
+    });
 
     /*=============================================
      VISTAS PROYECTOS
@@ -58,6 +58,14 @@ Route::group(['prefix' => '{locale}'], function () {
 
 
 });
+
+/*=============================================
+     CONSULTAS
+=============================================*/
+Route::group(['prefix' => 'api'], function (){
+    Route::get('/get-user-profile-clout', 'UserController@getUserProfileClout')->name('api.get.user.profile.clout');
+});
+
 
 
 Auth::routes();

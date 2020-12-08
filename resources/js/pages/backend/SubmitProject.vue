@@ -234,6 +234,53 @@
                     <section class="pb-5" style="width: 100%; height: 100%" v-if="currentTab===1">
                         <div class="row">
                             <div class="col-12 col-lg-6 col-md-6 profiling">
+                                <label>{{ $t('register-aspirant.select_redes_sociales') }} <span
+                                    class="text-danger">*</span></label>
+                                <input-form
+                                    label=""
+                                    id="txtSocialNetworks"
+                                    :requiredMsg="$t('register-aspirant.requerido_select_redes_sociales')"
+                                    :required="true"
+                                    :modelo.sync="objectSocialNetworks"
+                                    :msgServer.sync="errors.objectSocialNetworks"
+                                    type="multiselect"
+                                    selectLabel=""
+                                    :multiselect="{ 'tag-placeholder' : '',
+                                          // selectLabel   : $t('company.multiselect.select'),
+                                          // selectedLabel : $t('company.multiselect.selected'),
+                                          // deselectLabel : $t('company.multiselect.remove'),
+                                          placeholder : $t('register-aspirant.selecciona'),
+                                          label : 'social',
+                                          'track-by' : 'id',
+                                          options : listSocialNetworks,
+                                          multiple : true,
+                                          taggable : true,
+                                          'custom-label': obj => obj.social
+                                        }"
+                                    @tag="addTagSocialInputs"
+                                ></input-form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div
+                                v-for="inputsSocial in objectSocialNetworks"
+                                :key="inputsSocial.id"
+                                class="col-md-4 col-lg-4 col-12"
+                            >
+                                <input-form
+                                    :label="'Url '+inputsSocial.social"
+                                    :id="'txt'+inputsSocial+'Artist'"
+                                    pattern="url"
+                                    :placeholder="inputsSocial.social+'url'"
+                                    :errorMsg="$t('register-aspirant.error_msg_url')"
+                                    :requiredMsg="$t('register-aspirant.requerido_msg_url')"
+                                    :required="true"
+                                    :modelo.sync="inputsSocial.model"
+                                ></input-form>
+                            </div>
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-12 col-lg-6 col-md-6 profiling">
                                 <label>{{ $t('register-aspirant.seleccionar_categoria_profiling') }} <span
                                     class="text-danger">*</span></label>
                                 <input-form
@@ -355,54 +402,20 @@
                              :beforeChange="validarTab"
                 >
                     <section class="pb-5" style="width: 100%; height: 100%" v-if="currentTab===2">
-                        <div class="row">
-                            <div class="col-12 col-lg-6 col-md-6 profiling">
-                                <label>{{ $t('register-aspirant.select_redes_sociales') }} <span
-                                    class="text-danger">*</span></label>
-                                <input-form
-                                    label=""
-                                    id="txtSocialNetworks"
-                                    :requiredMsg="$t('register-aspirant.requerido_select_redes_sociales')"
-                                    :required="true"
-                                    :modelo.sync="objectSocialNetworks"
-                                    :msgServer.sync="errors.objectSocialNetworks"
-                                    type="multiselect"
-                                    selectLabel=""
-                                    :multiselect="{ 'tag-placeholder' : '',
-                                          // selectLabel   : $t('company.multiselect.select'),
-                                          // selectedLabel : $t('company.multiselect.selected'),
-                                          // deselectLabel : $t('company.multiselect.remove'),
-                                          placeholder : $t('register-aspirant.selecciona'),
-                                          label : 'social',
-                                          'track-by' : 'id',
-                                          options : listSocialNetworks,
-                                          multiple : true,
-                                          taggable : true,
-                                          'custom-label': obj => obj.social
-                                        }"
-                                    @tag="addTagSocialInputs"
-                                ></input-form>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div
-                                v-for="inputsSocial in objectSocialNetworks"
-                                :key="inputsSocial.id"
-                                class="col-md-4 col-lg-4 col-12"
-                            >
-                                <input-form
-                                    :label="'Url '+inputsSocial.social"
-                                    :id="'txt'+inputsSocial+'Artist'"
-                                    pattern="url"
-                                    :placeholder="inputsSocial.social+'url'"
-                                    :errorMsg="$t('register-aspirant.error_msg_url')"
-                                    :requiredMsg="$t('register-aspirant.requerido_msg_url')"
-                                    :required="true"
-                                    :modelo.sync="inputsSocial.model"
-                                ></input-form>
-                            </div>
-                        </div>
+
                         <div class="row" v-if="objectSocialNetworks.length > 0">
+                            <div class="col-12 col-lg-6 col-md-6">
+                                <input-form
+                                    id="txtName_Initial"
+                                    :label="$t('register-aspirant.name_initial')"
+                                    pattern="alf"
+                                    :errorMsg="$t('register-aspirant.error_name_initial')"
+                                    :requiredMsg="$t('register-aspirant.requerido_name_initial')"
+                                    :modelo.sync="nameInitial"
+                                    :required="true"
+                                    :msgServer.sync="errors.nameInitial"
+                                ></input-form>
+                            </div>
                             <div class="col-12">
                                 <input-form
                                     id="txtUrl"
@@ -550,6 +563,7 @@ export default {
 
             urlProject: null,
             descriptionProject: "",
+            nameInitial: "",
 
             /*Links y redes sociales*/
 
@@ -561,9 +575,9 @@ export default {
                 {social: "Instagram", model: "", id: 3},
                 {social: "Spotify", model: "", id: 4},
                 {social: "Apple Music", model: "", id: 5},
-                // { social: 'Dezeer', model:'', id: 6 },
-                // { social: 'Tiktok', model:'', id: 7 },
-                {social: "Snapchat", model: "", id: 6},
+                {social: "TikTok", model: "", id: 6},
+                {social: "Twitch", model: "", id: 9},
+                {social: "Twitter", model: "", id: 8},
                 {social: "Website", model: "", id: 7}
             ],
 
@@ -581,7 +595,9 @@ export default {
             urlInstagram:'',
             urlSpotify:'',
             urlAppleMusic:'',
-            urlSnapcha:'',
+            urlTiktok:'',
+            urlTwitch:'',
+            urlTwitter:'',
             urlWebSite:'',
         }
     },
@@ -608,8 +624,14 @@ export default {
                     case "Apple Music":
                         this.urlAppleMusic = social.model;
                         break;
-                    case "Snapchat":
-                        this.urlSnapcha = social.model;
+                    case "TikTok":
+                        this.urlTiktok = social.model;
+                        break;
+                    case "Twitter":
+                        this.urlTwitter = social.model;
+                        break;
+                    case "Twitch":
+                        this.urlTwitch = social.model;
                         break;
                     case "Website":
                         this.urlWebSite = social.model;
@@ -751,19 +773,22 @@ export default {
             data.append('category_cloud', JSON.stringify(this.profiling.categoryProfiling))
             data.append('tag_cloud', JSON.stringify(this.profiling.tagsProfiling))
             data.append('music_cloud', JSON.stringify(this.profiling.musicProfiling))
+            data.append('url_youtube', this.urlYoutube);
+            data.append('url_instagram', this.urlInstagram);
+            data.append('url_applemusic', this.urlAppleMusic);
+            data.append('url_facebook', this.urlFacebook);
+            data.append('url_spotify', this.urlSpotify);
+            data.append('url_tiktok', this.urlTiktok);
+            data.append('url_twitch', this.urlTwitch);
+            data.append('url_twitter', this.urlTwitter);
+            data.append('url_website', this.urlWebSite);
         },
 
         registerWithProject(data) {
             data.append('social_network', JSON.stringify(this.objectSocialNetworks))
             data.append('url_project', this.urlProject)
             data.append('description_project', this.descriptionProject)
-            data.append('url_youtube', this.urlYoutube);
-            data.append('url_instagram', this.urlInstagram);
-            data.append('url_applemusic', this.urlAppleMusic);
-            data.append('url_facebook', this.urlFacebook);
-            data.append('url_spotify', this.urlSpotify);
-            data.append('url_snapcha', this.urlSnapcha);
-            data.append('url_website', this.urlWebSite);
+            data.append('name_initial', this.nameInitial)
         },
 
         validarTab() {

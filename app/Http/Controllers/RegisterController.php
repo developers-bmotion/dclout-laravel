@@ -82,7 +82,17 @@ class RegisterController extends Controller
         foreach ($tag as $tags){
             $cloutUser->tag()->attach($tags->id);
         }
-
+        User::where('id', $user->id)->update([
+            'url_facebook' => $request->url_facebook,
+            'url_youtube' => $request->url_youtube,
+            'url_instagram' => $request->url_instagram,
+            'url_tiktok' => $request->url_tiktok,
+            'url_twitter' => $request->url_twitter,
+            'url_twitch' => $request->url_twitch,
+            'url_spotify' => $request->url_spotify,
+            'url_apple_music' => $request->url_applemusic,
+            'url_website' => $request->url_website
+        ]);
     }
 
     public function registerCloutProject($request, $user){
@@ -92,17 +102,8 @@ class RegisterController extends Controller
         $project->user_id = $user->id;
         $project->link = $request->url_project;
         $project->description_short = $request->description_project;
+        $project->name_initial = $request->name_initial;
         $project->save();
-
-        User::where('id', $user->id)->update([
-            'url_facebook' => $request->url_facebook,
-            'url_youtube' => $request->url_youtube,
-            'url_instagram' => $request->url_instagram,
-            'url_snapcha' => $request->url_snapcha,
-            'url_spotify' => $request->url_spotify,
-            'url_apple_music' => $request->url_applemusic,
-            'web_site' => $request->url_website
-        ]);
 
     }
 

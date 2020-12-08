@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'birthday'
     ];
 
     /**
@@ -47,5 +47,8 @@ class User extends Authenticatable
 
     public function clouts(){
         return $this->hasMany(Clout::class);
+    }
+    public function cities(){
+        return $this->belongsTo(City::class, 'city_id');
     }
 }

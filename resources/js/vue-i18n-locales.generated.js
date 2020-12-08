@@ -1,7 +1,7 @@
 export default {
     "en": {
         "Seleccionar_Idioma": "Select language",
-        "Presenta_Proyecto": "Present your register",
+        "Presenta_Proyecto": "Present your project",
         "email": {
             "bievenido_email": "Welcome",
             "bievenido_email_a": "Welcome to",
@@ -70,23 +70,35 @@ export default {
             "error_cargar_mensaje_cloud_tags": "Error loading tags",
             "error_cargar_mensaje_cloud_music": "Error loading music genres",
             "error_cargar_mensaje_cloud_countries": "Error loading countries",
-            "presenta_proyecto": "Present your register",
+            "presenta_proyecto": "Present your project",
             "select_redes_sociales": "Select social networks",
             "requerido_select_redes_sociales": "You must select at least one social network",
-            "error_msg_url": "Please enter a valid URL",
-            "requerido_msg_url": "URL is required",
-            "url_proyecto": "Url register",
-            "error_url": "Please enter a valid URL",
-            "requerido_url": "URL is required",
+            "error_msg_url": "Enter a valid link",
+            "requerido_msg_url": "The link is required",
+            "url_proyecto": "Project link",
+            "error_url": "Enter valid link",
+            "requerido_url": "El link es requerido",
             "descripcion_proyecto": "Describe your register in 500 words",
             "error_descripcion_proyecto": "Please enter a valid description",
             "requerido_descripcion_proyecto": "Description required",
             "caracteres_restantes": "Characters remaining",
-            "error_maximo_caracteres": "character limit exceeded"
+            "error_maximo_caracteres": "character limit exceeded",
+            "name_initial": "Project name",
+            "error_name_initial": "Please enter a valid name",
+            "requerido_name_initial": "The name of the project is required"
         },
         "pagination": {
             "previous": "&laquo; Previous",
             "next": "Next &raquo;"
+        },
+        "profile-clout": {
+            "intereses_clout": "Tags",
+            "generos_musicales": "Musical Genres",
+            "web_redes_sociales": "WebSite & Social Networks",
+            "informacion_contacto": "Contact Information",
+            "proyectos_presentados": "Projects Presented",
+            "proyectos_aprobados": "Approved Projects",
+            "configuracion_profile_clout": "Setting"
         },
         "validation": {
             "accepted": "The {attribute} must be accepted.",
@@ -275,16 +287,19 @@ export default {
             "presenta_proyecto": "Presenta tu proyecto",
             "select_redes_sociales": "Selecciona redes sociales",
             "requerido_select_redes_sociales": "Debes seleccionar al menos una red social",
-            "error_msg_url": "Ingrese una URL válida",
-            "requerido_msg_url": "La URL es requerida",
-            "url_proyecto": "Url proyecto",
-            "error_url": "Ingrese URL válida",
-            "requerido_url": "La URL es requerida",
+            "error_msg_url": "Ingrese un link válido",
+            "requerido_msg_url": "El link es requerida",
+            "url_proyecto": "Link del proyecto",
+            "error_url": "Ingrese link válido",
+            "requerido_url": "El link es requerido",
             "descripcion_proyecto": "Describe tu proyecto en max 500 palabras",
             "error_descripcion_proyecto": "Ingrese una descripción válida",
             "requerido_descripcion_proyecto": "Descripción requerida",
             "caracteres_restantes": "Caracteres restantes",
-            "error_maximo_caracteres": "a excedido el límite de caracteres"
+            "error_maximo_caracteres": "a excedido el límite de caracteres",
+            "name_initial": "Nombre del proyecto",
+            "error_name_initial": "Ingrese un nombre válido",
+            "requerido_name_initial": "El nombre del proyecto es requerido"
         },
         "pagination": {
             "previous": "&laquo; Anterior",
@@ -400,6 +415,15 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "profile-clout": {
+            "intereses_clout": "Intéreses",
+            "generos_musicales": "Géneros Musicales",
+            "web_redes_sociales": "Web Sites & Redes Sociales",
+            "informacion_contacto": "Información de Contacto",
+            "proyectos_presentados": "Proyectos Presentados",
+            "proyectos_aprobados": "Proyectos Aprobados",
+            "configuracion_profile_clout": "Configuración"
         },
         "validation": {
             "accepted": "{attribute} debe ser aceptado.",

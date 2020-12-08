@@ -15,6 +15,6 @@ class CloudCategory extends Model
     ];
 
     public function clouts(){
-        return $this->hasMany(Clout::class);
+        return $this->hasOne(Clout::class);
     }
 }
