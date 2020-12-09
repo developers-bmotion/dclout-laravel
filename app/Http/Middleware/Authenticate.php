@@ -15,8 +15,14 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         $language = session('language');
+        $url = config('app.url');
         if (! $request->expectsJson()) {
-            return '/'.$language.'/'.'login';
+            if ($language){
+                return $url.'/'.$language.'/'.'login';
+            }else{
+                return $url.'/es/'.'login';
+            }
+
         }
     }
 }

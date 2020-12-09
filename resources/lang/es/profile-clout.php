@@ -30,6 +30,8 @@ return [
 
     //TABS CONFIGURACIONES
     'titlo_colapse_informacion_personal' => 'Información Personal',
-    'pais_editar_perfil' => 'País'
+    'pais_editar_perfil' => 'País',
+
+    'categoria_relacionada' => 'Categoría que se relaciona a ti'
 
 ];

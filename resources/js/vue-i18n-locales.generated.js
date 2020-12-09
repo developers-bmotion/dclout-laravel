@@ -119,7 +119,8 @@ export default {
             "rechazado_estado_tabla": "Rejected",
             "msg_no_proyectos_presentados": "There are no approved projects",
             "titlo_colapse_informacion_personal": "Personal information",
-            "pais_editar_perfil": "Country"
+            "pais_editar_perfil": "Country",
+            "categoria_relacionada": "Category that relates to you"
         },
         "validation": {
             "accepted": "The {attribute} must be accepted.",
@@ -465,7 +466,8 @@ export default {
             "rechazado_estado_tabla": "Rechazado",
             "msg_no_proyectos_presentados": "No hay proyectos aprobados",
             "titlo_colapse_informacion_personal": "Información Personal",
-            "pais_editar_perfil": "País"
+            "pais_editar_perfil": "País",
+            "categoria_relacionada": "Categoría que se relaciona a ti"
         },
         "validation": {
             "accepted": "{attribute} debe ser aceptado.",

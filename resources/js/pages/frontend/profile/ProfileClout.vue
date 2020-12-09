@@ -81,8 +81,8 @@
                                 $t('profile-clout.informacion_contacto')
                             }}</label>
                         <ul class="list-unstyled profile-info-list">
-                            <li><img :src="country.flag" alt="" style="width: 1.3rem"> <span
-                                class="tx-color-03" style="margin-left: 0.8rem;">{{ country.name }}</span></li>
+                            <li><img :src="flag" alt="" style="width: 1.3rem"> <span
+                                class="tx-color-03" style="margin-left: 0.8rem;">{{ nameCountry }}</span></li>
                             <li><i class="fas fa-home"></i> <span style="margin-left: 1.1rem;"
                                                                   class="tx-color-03">{{ city }}</span></li>
                             <li><i class="fas fa-mobile-alt"></i><a style="margin-left: 1.2rem;" href="#">{{
@@ -100,53 +100,73 @@
                 <vs-tabs :value="valueTabPosition" color="#000000" alignment="fixed">
                     <vs-tab @click="skeletonValue = 1" :label="$t('profile-clout.proyectos_presentados')">
                         <div>
-                            <vue-good-table
-                                compactMode
-                                :columns="columns"
-                                :rows="projects"
-                            >
-                                <template slot="table-row" slot-scope="props">
-                                    <div v-if="props.column.field == 'state'">
-                                        <span v-if="props.row.state == 1" class="badge text-center badge-pill badge-light">{{ $t('profile-clout.revision_estado_tabla') }}</span>
-                                        <span v-if="props.row.state == 2" class="badge text-center badge-pill badge-primary">{{ $t('profile-clout.publicado_estado_tabla') }}</span>
-                                        <span v-if="props.row.state == 3" class="badge text-center badge-pill badge-success">{{ $t('profile-clout.aceptado_estado_tabla') }}</span>
-                                        <span v-if="props.row.state == 4" class="badge text-center badge-pill badge-danger">{{ $t('profile-clout.rechazado_estado_tabla') }}</span>
-                                    </div>
-                                    <div v-else-if="props.column.field === 'created_at'">
-                                        <p>{{ moment(props.row.created_at).locale(language).format("LL") }}</p>
-                                    </div>
-                                    <div v-else-if="props.column.field === 'description_short'">
-                                        <p style="cursor: pointer" @click="onCellTable(props.row)">{{ $t('profile-clout.mas_informacion_tabla') }}</p>
-                                    </div>
-                                    <div v-else-if="props.column.field === 'link'">
-                                        <a :href="props.row.link" target="_blank"  class="btn btn btn-outline-secondary">Link</a>
-                                    </div>
-                                </template>
-                            </vue-good-table>
-                            <vs-popup class="holamundo"  :title="nameProject" :active.sync="popupActivoProfile">
+                            <h1 class="pb-3">{{ $t('profile-clout.proyectos_presentados') }}</h1>
+                            <div class="row">
+                                <div class="col-12">
+                                    <vue-good-table
+                                        compactMode
+                                        :columns="columns"
+                                        :rows="projects"
+                                    >
+                                        <template slot="table-row" slot-scope="props">
+                                            <div v-if="props.column.field == 'state'">
+                                                <span v-if="props.row.state == 1"
+                                                      class="badge text-center badge-pill badge-light">{{
+                                                        $t('profile-clout.revision_estado_tabla')
+                                                    }}</span>
+                                                <span v-if="props.row.state == 2"
+                                                      class="badge text-center badge-pill badge-primary">{{
+                                                        $t('profile-clout.publicado_estado_tabla')
+                                                    }}</span>
+                                                <span v-if="props.row.state == 3"
+                                                      class="badge text-center badge-pill badge-success">{{
+                                                        $t('profile-clout.aceptado_estado_tabla')
+                                                    }}</span>
+                                                <span v-if="props.row.state == 4"
+                                                      class="badge text-center badge-pill badge-danger">{{
+                                                        $t('profile-clout.rechazado_estado_tabla')
+                                                    }}</span>
+                                            </div>
+                                            <div v-else-if="props.column.field === 'created_at'">
+                                                <p>{{ moment(props.row.created_at).locale(language).format("LL") }}</p>
+                                            </div>
+                                            <div v-else-if="props.column.field === 'description_short'">
+                                                <p style="cursor: pointer" @click="onCellTable(props.row)">
+                                                    {{ $t('profile-clout.mas_informacion_tabla') }}</p>
+                                            </div>
+                                            <div v-else-if="props.column.field === 'link'">
+                                                <a :href="props.row.link" target="_blank"
+                                                   class="btn btn btn-outline-secondary">Link</a>
+                                            </div>
+                                        </template>
+                                    </vue-good-table>
+                                </div>
+                            </div>
+                            <vs-popup class="holamundo" :title="nameProject" :active.sync="popupActivoProfile">
                                 <p>{{ description_short }}</p>
                             </vs-popup>
                         </div>
                     </vs-tab>
                     <vs-tab @click="loadProjectsAprovad" :label="$t('profile-clout.proyectos_aprobados')">
-                            <div v-if="skeletonValue == 1">
-                                <div class="row">
-                                    <div class="col-12 col-md-6 col-lg-6" v-for="skele in 6">
-                                        <SkeletonCard
-                                            primary="#fafafa"
-                                            structure="7013"
-                                            borderRadius="0px"
-                                            animTimingFunction="ease-in"/>
-                                    </div>
+                        <div v-if="skeletonValue == 1">
+                            <h1 class="pb-3">{{ $t('profile-clout.proyectos_aprobados') }}</h1>
+                            <div class="row">
+                                <div class="col-12 col-md-6 col-lg-6" v-for="skele in 6">
+                                    <SkeletonCard
+                                        primary="#fafafa"
+                                        structure="7013"
+                                        borderRadius="0px"
+                                        animTimingFunction="ease-in"/>
                                 </div>
                             </div>
+                        </div>
                         <div v-else>
-                            <p class="text-center">{{ $t('profile-clout.msg_no_proyectos_presentados')}}</p>
+                            <p class="text-center">{{ $t('profile-clout.msg_no_proyectos_presentados') }}</p>
                         </div>
                     </vs-tab>
                     <vs-tab @click="skeletonValue = 1" :label="$t('profile-clout.configuracion_profile_clout')">
-                        <div>
-                        <edit-profile></edit-profile>
+                        <div class="tabConfiguration">
+                            <edit-profile></edit-profile>
                         </div>
                     </vs-tab>
                 </vs-tabs>
@@ -213,6 +233,8 @@ export default {
             url_apple_music: "",
             url_website: "",
             web_site: "",
+            flag: "",
+            nameCountry: "",
             city: null,
             country: null,
             categoryClout: null,
@@ -220,8 +242,8 @@ export default {
             musics: [],
 
             projects: [],
-            description_short:"",
-            nameProject:""
+            description_short: "",
+            nameProject: ""
         }
     },
     methods: {
@@ -236,6 +258,8 @@ export default {
                 this.musics = resp.data.data.clouts[0].musical_genres
                 this.city = resp.data.data.cities.name
                 this.country = resp.data.data.cities.countries
+                this.flag = this.country.flag
+                this.nameCountry = this.country.name
 
                 this.url_facebook = resp.data.data.url_facebook
                 this.url_apple_music = resp.data.data.url_apple_music
@@ -253,7 +277,7 @@ export default {
 
             })
         },
-        onCellTable(params){
+        onCellTable(params) {
             console.log(params)
             this.$vs.loading({color: this.colorLoading})
 
@@ -268,21 +292,28 @@ export default {
             }, 1000)
 
         },
-        loadProjectsAprovad(){
+        loadProjectsAprovad() {
             setTimeout(() => {
                 this.skeletonValue = 0
             }, 1500)
         },
 
-        indexTabLoad(){
+        indexTabLoad() {
             let resp = this;
-           let indexTab = window.localStorage.getItem('indexTab')
-            if (indexTab){
+            let indexTab = window.localStorage.getItem('indexTab')
+            if (indexTab) {
                 this.valueTabPosition = indexTab
                 window.localStorage.removeItem('indexTab');
                 setTimeout(() => {
                     resp.skeletonValue = 0
                 }, 1500)
+            }
+
+            if (indexTab == 2) {
+                // alert('hola');
+                // $('html,body').animate({
+                //         scrollTop: $(".tabConfiguration").offset().top},
+                //     'slow');
             }
 
         }
